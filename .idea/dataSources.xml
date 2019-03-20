@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="master@172.26.54.133" uuid="528201da-40b9-4e23-9559-03ce3cd43d2a">
+    <data-source source="LOCAL" name="newDB@172.26.54.133" uuid="e5dc6d96-3c9e-41b1-872d-1e135d315e43">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://172.26.54.133:1433;database=master</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://172.26.54.133:1433;database=newDB</jdbc-url>
       <driver-properties>
         <property name="applicationName" value="DataGrip" />
       </driver-properties>
