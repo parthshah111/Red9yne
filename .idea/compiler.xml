@@ -10,12 +10,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ConnectionTest" target="11" />
+      <module name="ConnectionTest" target="10" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ConnectionTest" options="-parameters" />
+      <module name="ConnectionTest" options="" />
     </option>
   </component>
 </project>
