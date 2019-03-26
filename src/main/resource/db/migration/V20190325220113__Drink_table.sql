@@ -7,3 +7,4 @@ create table Drink
   DRINK_DESC VARCHAR(24) not null
 )
 GO
+
