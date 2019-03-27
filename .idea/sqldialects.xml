@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190325215909__Report_Date_table.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190325220246__Manager_table.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190325223633__StaffTitle.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190325224149__EventStatus_table.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190326151117__manager_note.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190326152045__payment_information.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190326153517__Dessert.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190326153805__Dessert_menu.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190326155452__food_type.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190327155837__Appointment_Status_table.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190327155909__Appointment_Customer_table.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190327155944__Tax_table.sql" dialect="TSQL" />

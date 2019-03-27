@@ -1,8 +1,11 @@
 create table Dessert
 (
-  Dessert_id int not null,
-  dessert_name varchar(50) not null,
-  dessert_desc varchar (100) not null,
-  dessert_price money not null
+  Dessert_ID int identity
+    constraint Dessert_pk
+      primary key nonclustered,
+  Dessert_name varchar(50) not null,
+  Dessert_desc varchar(100) not null,
+  Dessert_price money not null
 )
 go
+
