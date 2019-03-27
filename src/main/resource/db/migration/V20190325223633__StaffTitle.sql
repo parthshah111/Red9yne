@@ -1,4 +1,4 @@
-create table StaffTittle
+create table StaffTitle
 (
   Tittle_ID int identity
     constraint StaffTittle_pk
