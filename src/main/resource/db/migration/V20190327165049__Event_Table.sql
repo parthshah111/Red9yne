@@ -1,22 +1,24 @@
--- create table Event_Table
--- (
---   EVENT_ID int identity
---     constraint Event_Table_pk
---       primary key nonclustered,
---   EVENT_TYPE VARCHAR(255) references EventStatus(EVENT_TYPE),
---   NUM_GUEST integer not null,
---   VENUE VARCHAR(255) not null,
---   FOOD_ARRIVAL VARCHAR(255) not null,
---   COCKTAIL_STARTS SMALLDATETIME not null,
---   DINNER_STATUS SMALLDATETIME not null,
---   DINNER_ENDS SMALLDATETIME not null,
---   CLEAN_UP VARCHAR(255) not null,
---   constraint Event_Table_Customer_CUSTOMER_ID_fk
---     foreign key (CUSTOMER_ID) references Customer (CUSTOMER_ID),
---   constraint Event_Table_Order_ORDER_NO_fk
---     foreign key (ORDER_NO) references [Order] (ORDER_NO),
---   constraint [Event_Table_Report Date_REPORT_ID_fk]
---     foreign key (REPORT_ID) references [Report Date] (REPORT_ID),
---
--- )
--- go
+create table Event
+(
+  Report_ID int not null
+    constraint Event_ReportDate_Report_ID_fk
+      references ReportDate,
+  Order_No int not null
+    constraint Event_Order_Order_No_fk
+      references [Order] (Order_No),
+  Customer_ID int not null
+    constraint Event_Customer_CUSTOMER_ID_fk
+      references Customer (CUSTOMER_ID),
+  Event_ID int identity
+    constraint Event_pk
+      primary key nonclustered,
+  Event_Type varchar(255) not null,
+  Num_Guest int not null,
+  Venue varchar(255) not null,
+  Food_Arrival time not null,
+  Cocktail_Starts time not null,
+  Dinner_Status varchar(255) not null,
+  Dinner_Ends time not null,
+  Clean_Up varchar(255) not null
+)
+go

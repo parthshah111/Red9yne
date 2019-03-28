@@ -1,5 +1,8 @@
--- CREATE TABLE FoodType
--- (
---     food_type__id int PRIMARY KEY,
---     food_desc varchar(50) NOT NULL
--- )
+create table FoodType
+(
+  Food_Type int identity
+    constraint FoodType_pk
+      primary key nonclustered,
+  Food_Desc varchar(255) not null
+)
+go

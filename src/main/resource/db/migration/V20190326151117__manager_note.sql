@@ -1,21 +1,21 @@
--- create table ManagerNote
--- (
---   Note_ID int identity
---     constraint ManagerNote_pk
---       primary key nonclustered,
---   Report_ID int not null,
--- --     constraint ManagerNote
---     foreign key (Report_ID) references ReportDate (Report_ID),
---   Order_No int not null,
---   Customer_ID int not null,
--- --     constraint ManagerNote
---   foreign key (Customer_ID) references Customer (Customer_ID),
---   Manager_ID int not null,
--- --     constraint ManagerNote
---   foreign key (Manager_ID)references [Manager] (Manager_ID),
---   Note_Desc int not null,
---   Note_Date int not null,
--- --   constraint ManagerNote
---     foreign key (Order_No) references [Order] (Order_No)
--- )
--- go
+create table Manager_Note
+(
+  Report_ID int not null
+    constraint Manager_Note_ReportDate_Report_ID_fk
+      references ReportDate,
+  Order_No int not null
+    constraint Manager_Note_Order_Order_No_fk
+      references [Order] (Order_No),
+  Customer_ID int not null
+    constraint Manager_Note_Customer_CUSTOMER_ID_fk
+      references Customer,
+  Manager_ID int not null
+    constraint Manager_Note_Manager_MANAGER_ID_fk
+      references Manager,
+  Note_ID int identity
+    constraint Manager_Note_pk
+      primary key nonclustered,
+  Note_Desc varchar(100) not null,
+  Note_Date date not null
+)
+go
