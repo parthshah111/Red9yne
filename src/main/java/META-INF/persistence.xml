@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="NewPersistenceUnit">
+        <class>Main.AppointmentEntity</class>
+        <class>Main.AppointmentCustomerEntity</class>
+        <class>Main.AppointmentStatusEntity</class>
+        <class>Main.BillingAddressEntity</class>
+        <class>Main.CustomerEntity</class>
+        <class>Main.DeliveryEntity</class>
+        <class>Main.DessertEntity</class>
+        <class>Main.DessertMenuEntity</class>
+        <class>Main.DrinkEntity</class>
+        <class>Main.DrinkMenuEntity</class>
+        <class>Main.EventEntity</class>
+        <class>Main.EventStatusEntity</class>
+        <class>Main.FoodEntity</class>
+        <class>Main.FoodTypeEntity</class>
+        <class>Main.GratuityEntity</class>
+        <class>Main.GratuityTypeEntity</class>
+        <class>Main.LateFeeEntity</class>
+        <class>Main.ManagerEntity</class>
+        <class>Main.ManagerNoteEntity</class>
+        <class>Main.MenuTotalEntity</class>
+        <class>Main.OrderEntity</class>
+        <class>Main.OrderStatusEntity</class>
+        <class>Main.PaymentInformationEntity</class>
+        <class>Main.ReportDateEntity</class>
+        <class>Main.StaffEntity</class>
+        <class>Main.StaffTitleEntity</class>
+        <class>Main.SupplyStatusEntity</class>
+        <class>Main.SupplyTotalEntity</class>
+        <class>Main.TaxEntity</class>
+        <class>Main.TaxTypeEntity</class>
+        <properties>
+            <property name="toplink.jdbc.url" value="jdbc:sqlserver://172.26.54.133:1433;database=newDB"/>
+            <property name="toplink.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:sqlserver://172.26.54.133:1433;database=newDB"/>
+            <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:sqlserver://172.26.54.133:1433;database=newDB"/>
+            <property name="openjpa.ConnectionDriverName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:sqlserver://172.26.54.133:1433;database=newDB"/>
+            <property name="eclipselink.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        </properties>
+    </persistence-unit>
+</persistence>
