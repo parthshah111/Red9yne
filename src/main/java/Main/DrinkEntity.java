@@ -1,18 +1,16 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Drink", schema = "dbo", catalog = "newDB")
+@Table(name = "Drink", schema = "dbo", catalog = "DBdummy2")
 public class DrinkEntity {
     private int drinkId;
     private String drinkName;
     private String drinkDesc;
-    private Collection<DrinkMenuEntity> drinkMenusByDrinkId;
 
     @Id
-    @Column(name = "DRINK_ID", nullable = false)
+    @Column(name = "DRINK_ID")
     public int getDrinkId() {
         return drinkId;
     }
@@ -22,7 +20,7 @@ public class DrinkEntity {
     }
 
     @Basic
-    @Column(name = "DRINK_NAME", nullable = false, length = 24)
+    @Column(name = "DRINK_NAME")
     public String getDrinkName() {
         return drinkName;
     }
@@ -32,7 +30,7 @@ public class DrinkEntity {
     }
 
     @Basic
-    @Column(name = "DRINK_DESC", nullable = false, length = 24)
+    @Column(name = "DRINK_DESC")
     public String getDrinkDesc() {
         return drinkDesc;
     }
@@ -61,14 +59,5 @@ public class DrinkEntity {
         result = 31 * result + (drinkName != null ? drinkName.hashCode() : 0);
         result = 31 * result + (drinkDesc != null ? drinkDesc.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "drinkByDrinkId")
-    public Collection<DrinkMenuEntity> getDrinkMenusByDrinkId() {
-        return drinkMenusByDrinkId;
-    }
-
-    public void setDrinkMenusByDrinkId(Collection<DrinkMenuEntity> drinkMenusByDrinkId) {
-        this.drinkMenusByDrinkId = drinkMenusByDrinkId;
     }
 }

@@ -1,20 +1,18 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Manager", schema = "dbo", catalog = "newDB")
+@Table(name = "Manager", schema = "dbo", catalog = "DBdummy2")
 public class ManagerEntity {
     private int managerId;
     private String managerFname;
     private String managerLname;
     private String managerEmail;
     private String managerPhone;
-    private Collection<ManagerNoteEntity> managerNotesByManagerId;
 
     @Id
-    @Column(name = "MANAGER_ID", nullable = false)
+    @Column(name = "MANAGER_ID")
     public int getManagerId() {
         return managerId;
     }
@@ -24,7 +22,7 @@ public class ManagerEntity {
     }
 
     @Basic
-    @Column(name = "MANAGER_FNAME", nullable = false, length = 24)
+    @Column(name = "MANAGER_FNAME")
     public String getManagerFname() {
         return managerFname;
     }
@@ -34,7 +32,7 @@ public class ManagerEntity {
     }
 
     @Basic
-    @Column(name = "MANAGER_LNAME", nullable = false, length = 24)
+    @Column(name = "MANAGER_LNAME")
     public String getManagerLname() {
         return managerLname;
     }
@@ -44,7 +42,7 @@ public class ManagerEntity {
     }
 
     @Basic
-    @Column(name = "MANAGER_EMAIL", nullable = false, length = 24)
+    @Column(name = "MANAGER_EMAIL")
     public String getManagerEmail() {
         return managerEmail;
     }
@@ -54,7 +52,7 @@ public class ManagerEntity {
     }
 
     @Basic
-    @Column(name = "MANAGER_PHONE", nullable = false, length = 24)
+    @Column(name = "MANAGER_PHONE")
     public String getManagerPhone() {
         return managerPhone;
     }
@@ -87,14 +85,5 @@ public class ManagerEntity {
         result = 31 * result + (managerEmail != null ? managerEmail.hashCode() : 0);
         result = 31 * result + (managerPhone != null ? managerPhone.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "managerByManagerId")
-    public Collection<ManagerNoteEntity> getManagerNotesByManagerId() {
-        return managerNotesByManagerId;
-    }
-
-    public void setManagerNotesByManagerId(Collection<ManagerNoteEntity> managerNotesByManagerId) {
-        this.managerNotesByManagerId = managerNotesByManagerId;
     }
 }

@@ -1,19 +1,16 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Supply_Status", schema = "dbo", catalog = "newDB")
+@Table(name = "Supply_Status", schema = "dbo", catalog = "DBdummy2")
 public class SupplyStatusEntity {
     private int supplyId;
     private int supplyName;
     private int supplyStatus;
-    private Collection<LateFeeEntity> lateFeesBySupplyId;
-    private Collection<SupplyTotalEntity> supplyTotalsBySupplyId;
 
     @Id
-    @Column(name = "SUPPLY_ID", nullable = false)
+    @Column(name = "SUPPLY_ID")
     public int getSupplyId() {
         return supplyId;
     }
@@ -23,7 +20,7 @@ public class SupplyStatusEntity {
     }
 
     @Basic
-    @Column(name = "SUPPLY_NAME", nullable = false)
+    @Column(name = "SUPPLY_NAME")
     public int getSupplyName() {
         return supplyName;
     }
@@ -33,7 +30,7 @@ public class SupplyStatusEntity {
     }
 
     @Basic
-    @Column(name = "SUPPLY_STATUS", nullable = false)
+    @Column(name = "SUPPLY_STATUS")
     public int getSupplyStatus() {
         return supplyStatus;
     }
@@ -62,23 +59,5 @@ public class SupplyStatusEntity {
         result = 31 * result + supplyName;
         result = 31 * result + supplyStatus;
         return result;
-    }
-
-    @OneToMany(mappedBy = "supplyStatusBySupplyId")
-    public Collection<LateFeeEntity> getLateFeesBySupplyId() {
-        return lateFeesBySupplyId;
-    }
-
-    public void setLateFeesBySupplyId(Collection<LateFeeEntity> lateFeesBySupplyId) {
-        this.lateFeesBySupplyId = lateFeesBySupplyId;
-    }
-
-    @OneToMany(mappedBy = "supplyStatusBySupplyId")
-    public Collection<SupplyTotalEntity> getSupplyTotalsBySupplyId() {
-        return supplyTotalsBySupplyId;
-    }
-
-    public void setSupplyTotalsBySupplyId(Collection<SupplyTotalEntity> supplyTotalsBySupplyId) {
-        this.supplyTotalsBySupplyId = supplyTotalsBySupplyId;
     }
 }

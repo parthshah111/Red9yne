@@ -1,10 +1,9 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Customer", schema = "dbo", catalog = "newDB")
+@Table(name = "Customer", schema = "dbo", catalog = "DBdummy2")
 public class CustomerEntity {
     private int customerId;
     private String customerFname;
@@ -16,22 +15,9 @@ public class CustomerEntity {
     private String customerPhone;
     private String customerAltcontact;
     private String customerEmail;
-    private Collection<AppointmentCustomerEntity> appointmentCustomersByCustomerId;
-    private Collection<DessertMenuEntity> dessertMenusByCustomerId;
-    private Collection<DrinkMenuEntity> drinkMenusByCustomerId;
-    private Collection<EventEntity> eventsByCustomerId;
-    private Collection<GratuityEntity> gratuitiesByCustomerId;
-    private Collection<LateFeeEntity> lateFeesByCustomerId;
-    private Collection<ManagerNoteEntity> managerNotesByCustomerId;
-    private Collection<MenuTotalEntity> menuTotalsByCustomerId;
-    private Collection<OrderEntity> ordersByCustomerId;
-    private Collection<PaymentInformationEntity> paymentInformationsByCustomerId;
-    private Collection<StaffEntity> staffByCustomerId;
-    private Collection<SupplyTotalEntity> supplyTotalsByCustomerId;
-    private Collection<TaxEntity> taxesByCustomerId;
 
     @Id
-    @Column(name = "CUSTOMER_ID", nullable = false)
+    @Column(name = "CUSTOMER_ID")
     public int getCustomerId() {
         return customerId;
     }
@@ -41,7 +27,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_FNAME", nullable = false, length = 24)
+    @Column(name = "CUSTOMER_FNAME")
     public String getCustomerFname() {
         return customerFname;
     }
@@ -51,7 +37,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_LNAME", nullable = false, length = 24)
+    @Column(name = "CUSTOMER_LNAME")
     public String getCustomerLname() {
         return customerLname;
     }
@@ -61,7 +47,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_ADDRESS", nullable = false, length = 50)
+    @Column(name = "CUSTOMER_ADDRESS")
     public String getCustomerAddress() {
         return customerAddress;
     }
@@ -71,7 +57,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_CITY", nullable = false, length = 24)
+    @Column(name = "CUSTOMER_CITY")
     public String getCustomerCity() {
         return customerCity;
     }
@@ -81,7 +67,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_STATE", nullable = false, length = 24)
+    @Column(name = "CUSTOMER_STATE")
     public String getCustomerState() {
         return customerState;
     }
@@ -91,7 +77,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_COUNTRY", nullable = false, length = 24)
+    @Column(name = "CUSTOMER_COUNTRY")
     public String getCustomerCountry() {
         return customerCountry;
     }
@@ -101,7 +87,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_PHONE", nullable = false, length = 24)
+    @Column(name = "CUSTOMER_PHONE")
     public String getCustomerPhone() {
         return customerPhone;
     }
@@ -111,7 +97,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_ALTCONTACT", nullable = true, length = 24)
+    @Column(name = "CUSTOMER_ALTCONTACT")
     public String getCustomerAltcontact() {
         return customerAltcontact;
     }
@@ -121,7 +107,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "CUSTOMER_EMAIL", nullable = false, length = 24)
+    @Column(name = "CUSTOMER_EMAIL")
     public String getCustomerEmail() {
         return customerEmail;
     }
@@ -172,122 +158,5 @@ public class CustomerEntity {
         result = 31 * result + (customerAltcontact != null ? customerAltcontact.hashCode() : 0);
         result = 31 * result + (customerEmail != null ? customerEmail.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<AppointmentCustomerEntity> getAppointmentCustomersByCustomerId() {
-        return appointmentCustomersByCustomerId;
-    }
-
-    public void setAppointmentCustomersByCustomerId(Collection<AppointmentCustomerEntity> appointmentCustomersByCustomerId) {
-        this.appointmentCustomersByCustomerId = appointmentCustomersByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<DessertMenuEntity> getDessertMenusByCustomerId() {
-        return dessertMenusByCustomerId;
-    }
-
-    public void setDessertMenusByCustomerId(Collection<DessertMenuEntity> dessertMenusByCustomerId) {
-        this.dessertMenusByCustomerId = dessertMenusByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<DrinkMenuEntity> getDrinkMenusByCustomerId() {
-        return drinkMenusByCustomerId;
-    }
-
-    public void setDrinkMenusByCustomerId(Collection<DrinkMenuEntity> drinkMenusByCustomerId) {
-        this.drinkMenusByCustomerId = drinkMenusByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<EventEntity> getEventsByCustomerId() {
-        return eventsByCustomerId;
-    }
-
-    public void setEventsByCustomerId(Collection<EventEntity> eventsByCustomerId) {
-        this.eventsByCustomerId = eventsByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<GratuityEntity> getGratuitiesByCustomerId() {
-        return gratuitiesByCustomerId;
-    }
-
-    public void setGratuitiesByCustomerId(Collection<GratuityEntity> gratuitiesByCustomerId) {
-        this.gratuitiesByCustomerId = gratuitiesByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<LateFeeEntity> getLateFeesByCustomerId() {
-        return lateFeesByCustomerId;
-    }
-
-    public void setLateFeesByCustomerId(Collection<LateFeeEntity> lateFeesByCustomerId) {
-        this.lateFeesByCustomerId = lateFeesByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<ManagerNoteEntity> getManagerNotesByCustomerId() {
-        return managerNotesByCustomerId;
-    }
-
-    public void setManagerNotesByCustomerId(Collection<ManagerNoteEntity> managerNotesByCustomerId) {
-        this.managerNotesByCustomerId = managerNotesByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<MenuTotalEntity> getMenuTotalsByCustomerId() {
-        return menuTotalsByCustomerId;
-    }
-
-    public void setMenuTotalsByCustomerId(Collection<MenuTotalEntity> menuTotalsByCustomerId) {
-        this.menuTotalsByCustomerId = menuTotalsByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<OrderEntity> getOrdersByCustomerId() {
-        return ordersByCustomerId;
-    }
-
-    public void setOrdersByCustomerId(Collection<OrderEntity> ordersByCustomerId) {
-        this.ordersByCustomerId = ordersByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<PaymentInformationEntity> getPaymentInformationsByCustomerId() {
-        return paymentInformationsByCustomerId;
-    }
-
-    public void setPaymentInformationsByCustomerId(Collection<PaymentInformationEntity> paymentInformationsByCustomerId) {
-        this.paymentInformationsByCustomerId = paymentInformationsByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<StaffEntity> getStaffByCustomerId() {
-        return staffByCustomerId;
-    }
-
-    public void setStaffByCustomerId(Collection<StaffEntity> staffByCustomerId) {
-        this.staffByCustomerId = staffByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<SupplyTotalEntity> getSupplyTotalsByCustomerId() {
-        return supplyTotalsByCustomerId;
-    }
-
-    public void setSupplyTotalsByCustomerId(Collection<SupplyTotalEntity> supplyTotalsByCustomerId) {
-        this.supplyTotalsByCustomerId = supplyTotalsByCustomerId;
-    }
-
-    @OneToMany(mappedBy = "customerByCustomerId")
-    public Collection<TaxEntity> getTaxesByCustomerId() {
-        return taxesByCustomerId;
-    }
-
-    public void setTaxesByCustomerId(Collection<TaxEntity> taxesByCustomerId) {
-        this.taxesByCustomerId = taxesByCustomerId;
     }
 }

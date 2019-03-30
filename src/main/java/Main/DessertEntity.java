@@ -1,19 +1,17 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Dessert", schema = "dbo", catalog = "newDB")
+@Table(name = "Dessert", schema = "dbo", catalog = "DBdummy2")
 public class DessertEntity {
     private int dessertId;
     private String dessertName;
     private String dessertDesc;
     private double dessertPrice;
-    private Collection<DessertMenuEntity> dessertMenusByDessertId;
 
     @Id
-    @Column(name = "Dessert_ID", nullable = false)
+    @Column(name = "Dessert_ID")
     public int getDessertId() {
         return dessertId;
     }
@@ -23,7 +21,7 @@ public class DessertEntity {
     }
 
     @Basic
-    @Column(name = "Dessert_name", nullable = false, length = 50)
+    @Column(name = "Dessert_name")
     public String getDessertName() {
         return dessertName;
     }
@@ -33,7 +31,7 @@ public class DessertEntity {
     }
 
     @Basic
-    @Column(name = "Dessert_desc", nullable = false, length = 100)
+    @Column(name = "Dessert_desc")
     public String getDessertDesc() {
         return dessertDesc;
     }
@@ -43,7 +41,7 @@ public class DessertEntity {
     }
 
     @Basic
-    @Column(name = "Dessert_price", nullable = false, precision = 0)
+    @Column(name = "Dessert_price")
     public double getDessertPrice() {
         return dessertPrice;
     }
@@ -77,14 +75,5 @@ public class DessertEntity {
         temp = Double.doubleToLongBits(dessertPrice);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @OneToMany(mappedBy = "dessertByDessertId")
-    public Collection<DessertMenuEntity> getDessertMenusByDessertId() {
-        return dessertMenusByDessertId;
-    }
-
-    public void setDessertMenusByDessertId(Collection<DessertMenuEntity> dessertMenusByDessertId) {
-        this.dessertMenusByDessertId = dessertMenusByDessertId;
     }
 }

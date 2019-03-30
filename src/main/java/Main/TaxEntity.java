@@ -1,10 +1,9 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Tax", schema = "dbo", catalog = "newDB")
+@Table(name = "Tax", schema = "dbo", catalog = "DBdummy2")
 public class TaxEntity {
     private int reportId;
     private int orderNo;
@@ -12,44 +11,39 @@ public class TaxEntity {
     private int taxId;
     private int taxType;
     private double taxTotal;
-    private Collection<OrderEntity> ordersByTaxId;
-    private ReportDateEntity reportDateByReportId;
-    private OrderEntity orderByOrderNo;
-    private CustomerEntity customerByCustomerId;
-    private TaxTypeEntity taxTypeByTaxType;
 
-//    @Basic
-//    @Column(name = "Report_ID", nullable = false)
-//    public int getReportId() {
-//        return reportId;
-//    }
-//
-//    public void setReportId(int reportId) {
-//        this.reportId = reportId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Order_No", nullable = false)
-//    public int getOrderNo() {
-//        return orderNo;
-//    }
-//
-//    public void setOrderNo(int orderNo) {
-//        this.orderNo = orderNo;
-//    }
-//
-//    @Basic
-//    @Column(name = "Customer_ID", nullable = false)
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
+    @Basic
+    @Column(name = "Report_ID")
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    @Basic
+    @Column(name = "Order_No")
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    @Basic
+    @Column(name = "Customer_ID")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     @Id
-    @Column(name = "Tax_ID", nullable = false)
+    @Column(name = "Tax_ID")
     public int getTaxId() {
         return taxId;
     }
@@ -58,18 +52,18 @@ public class TaxEntity {
         this.taxId = taxId;
     }
 
-//    @Basic
-//    @Column(name = "Tax_Type", nullable = false)
-//    public int getTaxType() {
-//        return taxType;
-//    }
-//
-//    public void setTaxType(int taxType) {
-//        this.taxType = taxType;
-//    }
+    @Basic
+    @Column(name = "Tax_Type")
+    public int getTaxType() {
+        return taxType;
+    }
+
+    public void setTaxType(int taxType) {
+        this.taxType = taxType;
+    }
 
     @Basic
-    @Column(name = "Tax_Total", nullable = false, precision = 0)
+    @Column(name = "Tax_Total")
     public double getTaxTotal() {
         return taxTotal;
     }
@@ -107,54 +101,5 @@ public class TaxEntity {
         temp = Double.doubleToLongBits(taxTotal);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @OneToMany(mappedBy = "taxByTaxOrderId")
-    public Collection<OrderEntity> getOrdersByTaxId() {
-        return ordersByTaxId;
-    }
-
-    public void setOrdersByTaxId(Collection<OrderEntity> ordersByTaxId) {
-        this.ordersByTaxId = ordersByTaxId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID", nullable = false)
-    public ReportDateEntity getReportDateByReportId() {
-        return reportDateByReportId;
-    }
-
-    public void setReportDateByReportId(ReportDateEntity reportDateByReportId) {
-        this.reportDateByReportId = reportDateByReportId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Order_No", referencedColumnName = "Order_no", nullable = false)
-    public OrderEntity getOrderByOrderNo() {
-        return orderByOrderNo;
-    }
-
-    public void setOrderByOrderNo(OrderEntity orderByOrderNo) {
-        this.orderByOrderNo = orderByOrderNo;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "CUSTOMER_ID", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
-        return customerByCustomerId;
-    }
-
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
-        this.customerByCustomerId = customerByCustomerId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Tax_Type", referencedColumnName = "Tax_Type", nullable = false)
-    public TaxTypeEntity getTaxTypeByTaxType() {
-        return taxTypeByTaxType;
-    }
-
-    public void setTaxTypeByTaxType(TaxTypeEntity taxTypeByTaxType) {
-        this.taxTypeByTaxType = taxTypeByTaxType;
     }
 }

@@ -1,10 +1,9 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Drink_Menu", schema = "dbo", catalog = "newDB")
+@Table(name = "Drink_Menu", schema = "dbo", catalog = "DBdummy2")
 public class DrinkMenuEntity {
     private int reportId;
     private int orderNo;
@@ -13,44 +12,39 @@ public class DrinkMenuEntity {
     private int drinkId;
     private int drinkQty;
     private double drinkTotal;
-    private ReportDateEntity reportDateByReportId;
-    private OrderEntity orderByOrderNo;
-    private CustomerEntity customerByCustomerId;
-    private DrinkEntity drinkByDrinkId;
-    private Collection<OrderEntity> ordersByDrinkMenuId;
 
-//    @Basic
-//    @Column(name = "Report_ID", nullable = false)
-//    public int getReportId() {
-//        return reportId;
-//    }
-//
-//    public void setReportId(int reportId) {
-//        this.reportId = reportId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Order_No", nullable = false)
-//    public int getOrderNo() {
-//        return orderNo;
-//    }
-//
-//    public void setOrderNo(int orderNo) {
-//        this.orderNo = orderNo;
-//    }
-//
-//    @Basic
-//    @Column(name = "Customer_ID", nullable = false)
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
+    @Basic
+    @Column(name = "Report_ID")
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    @Basic
+    @Column(name = "Order_No")
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    @Basic
+    @Column(name = "Customer_ID")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     @Id
-    @Column(name = "Drink_MenuID", nullable = false)
+    @Column(name = "Drink_MenuID")
     public int getDrinkMenuId() {
         return drinkMenuId;
     }
@@ -59,18 +53,18 @@ public class DrinkMenuEntity {
         this.drinkMenuId = drinkMenuId;
     }
 
-//    @Basic
-//    @Column(name = "Drink_ID", nullable = false)
-//    public int getDrinkId() {
-//        return drinkId;
-//    }
-//
-//    public void setDrinkId(int drinkId) {
-//        this.drinkId = drinkId;
-//    }
+    @Basic
+    @Column(name = "Drink_ID")
+    public int getDrinkId() {
+        return drinkId;
+    }
+
+    public void setDrinkId(int drinkId) {
+        this.drinkId = drinkId;
+    }
 
     @Basic
-    @Column(name = "Drink_Qty", nullable = false)
+    @Column(name = "Drink_Qty")
     public int getDrinkQty() {
         return drinkQty;
     }
@@ -80,7 +74,7 @@ public class DrinkMenuEntity {
     }
 
     @Basic
-    @Column(name = "Drink_Total", nullable = false, precision = 0)
+    @Column(name = "Drink_Total")
     public double getDrinkTotal() {
         return drinkTotal;
     }
@@ -120,54 +114,5 @@ public class DrinkMenuEntity {
         temp = Double.doubleToLongBits(drinkTotal);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID", nullable = false)
-    public ReportDateEntity getReportDateByReportId() {
-        return reportDateByReportId;
-    }
-
-    public void setReportDateByReportId(ReportDateEntity reportDateByReportId) {
-        this.reportDateByReportId = reportDateByReportId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Order_No", referencedColumnName = "Order_no", nullable = false)
-    public OrderEntity getOrderByOrderNo() {
-        return orderByOrderNo;
-    }
-
-    public void setOrderByOrderNo(OrderEntity orderByOrderNo) {
-        this.orderByOrderNo = orderByOrderNo;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "CUSTOMER_ID", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
-        return customerByCustomerId;
-    }
-
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
-        this.customerByCustomerId = customerByCustomerId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Drink_ID", referencedColumnName = "DRINK_ID", nullable = false)
-    public DrinkEntity getDrinkByDrinkId() {
-        return drinkByDrinkId;
-    }
-
-    public void setDrinkByDrinkId(DrinkEntity drinkByDrinkId) {
-        this.drinkByDrinkId = drinkByDrinkId;
-    }
-
-    @OneToMany(mappedBy = "drinkMenuByDrinkMenuId")
-    public Collection<OrderEntity> getOrdersByDrinkMenuId() {
-        return ordersByDrinkMenuId;
-    }
-
-    public void setOrdersByDrinkMenuId(Collection<OrderEntity> ordersByDrinkMenuId) {
-        this.ordersByDrinkMenuId = ordersByDrinkMenuId;
     }
 }

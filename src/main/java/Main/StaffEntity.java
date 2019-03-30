@@ -1,10 +1,9 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Staff", schema = "dbo", catalog = "newDB")
+@Table(name = "Staff", schema = "dbo", catalog = "DBdummy2")
 public class StaffEntity {
     private int reportId;
     private int orderNo;
@@ -14,44 +13,39 @@ public class StaffEntity {
     private int staffQty;
     private double staffFee;
     private double staffTotal;
-    private Collection<OrderEntity> ordersByStaffId;
-    private ReportDateEntity reportDateByReportId;
-    private OrderEntity orderByOrderNo;
-    private CustomerEntity customerByCustomerId;
-    private StaffTitleEntity staffTitleByTitleId;
 
-//    @Basic
-//    @Column(name = "Report_ID", nullable = false)
-//    public int getReportId() {
-//        return reportId;
-//    }
-//
-//    public void setReportId(int reportId) {
-//        this.reportId = reportId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Order_No", nullable = false)
-//    public int getOrderNo() {
-//        return orderNo;
-//    }
-//
-//    public void setOrderNo(int orderNo) {
-//        this.orderNo = orderNo;
-//    }
-//
-//    @Basic
-//    @Column(name = "Customer_ID", nullable = false)
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
+    @Basic
+    @Column(name = "Report_ID")
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    @Basic
+    @Column(name = "Order_No")
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    @Basic
+    @Column(name = "Customer_ID")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     @Id
-    @Column(name = "Staff_ID", nullable = false)
+    @Column(name = "Staff_ID")
     public int getStaffId() {
         return staffId;
     }
@@ -60,18 +54,18 @@ public class StaffEntity {
         this.staffId = staffId;
     }
 
-//    @Basic
-//    @Column(name = "Title_ID", nullable = false)
-//    public int getTitleId() {
-//        return titleId;
-//    }
-//
-//    public void setTitleId(int titleId) {
-//        this.titleId = titleId;
-//    }
+    @Basic
+    @Column(name = "Title_ID")
+    public int getTitleId() {
+        return titleId;
+    }
+
+    public void setTitleId(int titleId) {
+        this.titleId = titleId;
+    }
 
     @Basic
-    @Column(name = "Staff_Qty", nullable = false)
+    @Column(name = "Staff_Qty")
     public int getStaffQty() {
         return staffQty;
     }
@@ -81,7 +75,7 @@ public class StaffEntity {
     }
 
     @Basic
-    @Column(name = "Staff_Fee", nullable = false, precision = 0)
+    @Column(name = "Staff_Fee")
     public double getStaffFee() {
         return staffFee;
     }
@@ -91,7 +85,7 @@ public class StaffEntity {
     }
 
     @Basic
-    @Column(name = "Staff_Total", nullable = false, precision = 0)
+    @Column(name = "Staff_Total")
     public double getStaffTotal() {
         return staffTotal;
     }
@@ -134,54 +128,5 @@ public class StaffEntity {
         temp = Double.doubleToLongBits(staffTotal);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @OneToMany(mappedBy = "staffByStaffId")
-    public Collection<OrderEntity> getOrdersByStaffId() {
-        return ordersByStaffId;
-    }
-
-    public void setOrdersByStaffId(Collection<OrderEntity> ordersByStaffId) {
-        this.ordersByStaffId = ordersByStaffId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID", nullable = false)
-    public ReportDateEntity getReportDateByReportId() {
-        return reportDateByReportId;
-    }
-
-    public void setReportDateByReportId(ReportDateEntity reportDateByReportId) {
-        this.reportDateByReportId = reportDateByReportId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Order_No", referencedColumnName = "Order_no", nullable = false)
-    public OrderEntity getOrderByOrderNo() {
-        return orderByOrderNo;
-    }
-
-    public void setOrderByOrderNo(OrderEntity orderByOrderNo) {
-        this.orderByOrderNo = orderByOrderNo;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "CUSTOMER_ID", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
-        return customerByCustomerId;
-    }
-
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
-        this.customerByCustomerId = customerByCustomerId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Title_ID", referencedColumnName = "Tittle_ID", nullable = false)
-    public StaffTitleEntity getStaffTitleByTitleId() {
-        return staffTitleByTitleId;
-    }
-
-    public void setStaffTitleByTitleId(StaffTitleEntity staffTitleByTitleId) {
-        this.staffTitleByTitleId = staffTitleByTitleId;
     }
 }

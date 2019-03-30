@@ -1,17 +1,15 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Appointment_Status", schema = "dbo", catalog = "newDB")
+@Table(name = "Appointment_Status", schema = "dbo", catalog = "DBdummy2")
 public class AppointmentStatusEntity {
     private int appointmentType;
     private int appointmentStatus;
-    private Collection<AppointmentEntity> appointmentsByAppointmentType;
 
     @Id
-    @Column(name = "Appointment_Type", nullable = false)
+    @Column(name = "Appointment_Type")
     public int getAppointmentType() {
         return appointmentType;
     }
@@ -21,7 +19,7 @@ public class AppointmentStatusEntity {
     }
 
     @Basic
-    @Column(name = "Appointment_Status", nullable = false)
+    @Column(name = "Appointment_Status")
     public int getAppointmentStatus() {
         return appointmentStatus;
     }
@@ -48,14 +46,5 @@ public class AppointmentStatusEntity {
         int result = appointmentType;
         result = 31 * result + appointmentStatus;
         return result;
-    }
-
-    @OneToMany(mappedBy = "appointmentStatusByAppointmentType")
-    public Collection<AppointmentEntity> getAppointmentsByAppointmentType() {
-        return appointmentsByAppointmentType;
-    }
-
-    public void setAppointmentsByAppointmentType(Collection<AppointmentEntity> appointmentsByAppointmentType) {
-        this.appointmentsByAppointmentType = appointmentsByAppointmentType;
     }
 }

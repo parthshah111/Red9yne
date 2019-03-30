@@ -1,10 +1,9 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Payment_Information", schema = "dbo", catalog = "newDB")
+@Table(name = "Payment_Information", schema = "dbo", catalog = "DBdummy2")
 public class PaymentInformationEntity {
     private int reportId;
     private int orderNo;
@@ -15,43 +14,39 @@ public class PaymentInformationEntity {
     private double amountDue;
     private String paymentFName;
     private String paymentLName;
-    private Collection<BillingIdEntity> billingIdsByPaymentId;
-    private ReportDateEntity reportDateByReportId;
-    private OrderEntity orderByOrderNo;
-    private CustomerEntity customerByCustomerId;
 
-//    @Basic
-//    @Column(name = "Report_ID", nullable = false)
-//    public int getReportId() {
-//        return reportId;
-//    }
-//
-//    public void setReportId(int reportId) {
-//        this.reportId = reportId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Order_No", nullable = false)
-//    public int getOrderNo() {
-//        return orderNo;
-//    }
-//
-//    public void setOrderNo(int orderNo) {
-//        this.orderNo = orderNo;
-//    }
-//
-//    @Basic
-//    @Column(name = "Customer_ID", nullable = false)
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
+    @Basic
+    @Column(name = "Report_ID")
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    @Basic
+    @Column(name = "Order_No")
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    @Basic
+    @Column(name = "Customer_ID")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     @Id
-    @Column(name = "Payment_ID", nullable = false)
+    @Column(name = "Payment_ID")
     public int getPaymentId() {
         return paymentId;
     }
@@ -61,7 +56,7 @@ public class PaymentInformationEntity {
     }
 
     @Basic
-    @Column(name = "Payment_History", nullable = false, length = 255)
+    @Column(name = "Payment_History")
     public String getPaymentHistory() {
         return paymentHistory;
     }
@@ -71,7 +66,7 @@ public class PaymentInformationEntity {
     }
 
     @Basic
-    @Column(name = "Order_Deposit", nullable = false, precision = 0)
+    @Column(name = "Order_Deposit")
     public double getOrderDeposit() {
         return orderDeposit;
     }
@@ -81,7 +76,7 @@ public class PaymentInformationEntity {
     }
 
     @Basic
-    @Column(name = "Amount_Due", nullable = false, precision = 0)
+    @Column(name = "Amount_Due")
     public double getAmountDue() {
         return amountDue;
     }
@@ -91,7 +86,7 @@ public class PaymentInformationEntity {
     }
 
     @Basic
-    @Column(name = "Payment_FName", nullable = false, length = 255)
+    @Column(name = "Payment_FName")
     public String getPaymentFName() {
         return paymentFName;
     }
@@ -101,7 +96,7 @@ public class PaymentInformationEntity {
     }
 
     @Basic
-    @Column(name = "Payment_LName", nullable = false, length = 255)
+    @Column(name = "Payment_LName")
     public String getPaymentLName() {
         return paymentLName;
     }
@@ -147,44 +142,5 @@ public class PaymentInformationEntity {
         result = 31 * result + (paymentFName != null ? paymentFName.hashCode() : 0);
         result = 31 * result + (paymentLName != null ? paymentLName.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "paymentInformationByPaymentId")
-    public Collection<BillingIdEntity> getBillingIdsByPaymentId() {
-        return billingIdsByPaymentId;
-    }
-
-    public void setBillingIdsByPaymentId(Collection<BillingIdEntity> billingIdsByPaymentId) {
-        this.billingIdsByPaymentId = billingIdsByPaymentId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID", nullable = false)
-    public ReportDateEntity getReportDateByReportId() {
-        return reportDateByReportId;
-    }
-
-    public void setReportDateByReportId(ReportDateEntity reportDateByReportId) {
-        this.reportDateByReportId = reportDateByReportId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Order_No", referencedColumnName = "Order_no", nullable = false)
-    public OrderEntity getOrderByOrderNo() {
-        return orderByOrderNo;
-    }
-
-    public void setOrderByOrderNo(OrderEntity orderByOrderNo) {
-        this.orderByOrderNo = orderByOrderNo;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "CUSTOMER_ID", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
-        return customerByCustomerId;
-    }
-
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
-        this.customerByCustomerId = customerByCustomerId;
     }
 }

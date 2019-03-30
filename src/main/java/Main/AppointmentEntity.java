@@ -1,19 +1,16 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Appointment", schema = "dbo", catalog = "newDB")
+@Table(name = "Appointment", schema = "dbo", catalog = "DBdummy2")
 public class AppointmentEntity {
     private int appointmentId;
     private int appointmentType;
     private int appointmentDate;
-    private AppointmentStatusEntity appointmentStatusByAppointmentType;
-    private Collection<AppointmentCustomerEntity> appointmentCustomersByAppointmentId;
 
     @Id
-    @Column(name = "Appointment_ID", nullable = false)
+    @Column(name = "Appointment_ID")
     public int getAppointmentId() {
         return appointmentId;
     }
@@ -22,18 +19,18 @@ public class AppointmentEntity {
         this.appointmentId = appointmentId;
     }
 
-//    @Basic
-//    @Column(name = "Appointment_Type", nullable = false)
-//    public int getAppointmentType() {
-//        return appointmentType;
-//    }
+    @Basic
+    @Column(name = "Appointment_Type")
+    public int getAppointmentType() {
+        return appointmentType;
+    }
 
     public void setAppointmentType(int appointmentType) {
         this.appointmentType = appointmentType;
     }
 
     @Basic
-    @Column(name = "Appointment_Date", nullable = false)
+    @Column(name = "Appointment_Date")
     public int getAppointmentDate() {
         return appointmentDate;
     }
@@ -62,24 +59,5 @@ public class AppointmentEntity {
         result = 31 * result + appointmentType;
         result = 31 * result + appointmentDate;
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Appointment_Type", referencedColumnName = "Appointment_Type", nullable = false)
-    public AppointmentStatusEntity getAppointmentStatusByAppointmentType() {
-        return appointmentStatusByAppointmentType;
-    }
-
-    public void setAppointmentStatusByAppointmentType(AppointmentStatusEntity appointmentStatusByAppointmentType) {
-        this.appointmentStatusByAppointmentType = appointmentStatusByAppointmentType;
-    }
-
-    @OneToMany(mappedBy = "appointmentByAppointmentId")
-    public Collection<AppointmentCustomerEntity> getAppointmentCustomersByAppointmentId() {
-        return appointmentCustomersByAppointmentId;
-    }
-
-    public void setAppointmentCustomersByAppointmentId(Collection<AppointmentCustomerEntity> appointmentCustomersByAppointmentId) {
-        this.appointmentCustomersByAppointmentId = appointmentCustomersByAppointmentId;
     }
 }

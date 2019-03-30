@@ -1,20 +1,17 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Food", schema = "dbo", catalog = "newDB")
+@Table(name = "Food", schema = "dbo", catalog = "DBdummy2")
 public class FoodEntity {
     private int foodId;
     private int foodType;
     private String foodName;
     private double foodPrice;
-    private FoodTypeEntity foodTypeByFoodType;
-    private Collection<MenuTotalEntity> menuTotalsByFoodId;
 
     @Id
-    @Column(name = "Food_ID", nullable = false)
+    @Column(name = "Food_ID")
     public int getFoodId() {
         return foodId;
     }
@@ -23,18 +20,18 @@ public class FoodEntity {
         this.foodId = foodId;
     }
 
-//    @Basic
-//    @Column(name = "Food_Type", nullable = false)
-//    public int getFoodType() {
-//        return foodType;
-//    }
+    @Basic
+    @Column(name = "Food_Type")
+    public int getFoodType() {
+        return foodType;
+    }
 
     public void setFoodType(int foodType) {
         this.foodType = foodType;
     }
 
     @Basic
-    @Column(name = "Food_Name", nullable = false, length = 255)
+    @Column(name = "Food_Name")
     public String getFoodName() {
         return foodName;
     }
@@ -44,7 +41,7 @@ public class FoodEntity {
     }
 
     @Basic
-    @Column(name = "Food_Price", nullable = false, precision = 0)
+    @Column(name = "Food_Price")
     public double getFoodPrice() {
         return foodPrice;
     }
@@ -78,24 +75,5 @@ public class FoodEntity {
         temp = Double.doubleToLongBits(foodPrice);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Food_Type", referencedColumnName = "Food_Type", nullable = false)
-    public FoodTypeEntity getFoodTypeByFoodType() {
-        return foodTypeByFoodType;
-    }
-
-    public void setFoodTypeByFoodType(FoodTypeEntity foodTypeByFoodType) {
-        this.foodTypeByFoodType = foodTypeByFoodType;
-    }
-
-    @OneToMany(mappedBy = "foodByFoodId")
-    public Collection<MenuTotalEntity> getMenuTotalsByFoodId() {
-        return menuTotalsByFoodId;
-    }
-
-    public void setMenuTotalsByFoodId(Collection<MenuTotalEntity> menuTotalsByFoodId) {
-        this.menuTotalsByFoodId = menuTotalsByFoodId;
     }
 }

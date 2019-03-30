@@ -1,17 +1,15 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Gratuity_Type", schema = "dbo", catalog = "newDB")
+@Table(name = "Gratuity_Type", schema = "dbo", catalog = "DBdummy2")
 public class GratuityTypeEntity {
     private int gratuityType;
     private int gratuityPercentage;
-    private Collection<GratuityEntity> gratuitiesByGratuityType;
 
     @Id
-    @Column(name = "Gratuity_Type", nullable = false)
+    @Column(name = "Gratuity_Type")
     public int getGratuityType() {
         return gratuityType;
     }
@@ -21,7 +19,7 @@ public class GratuityTypeEntity {
     }
 
     @Basic
-    @Column(name = "Gratuity_Percentage", nullable = false)
+    @Column(name = "Gratuity_Percentage")
     public int getGratuityPercentage() {
         return gratuityPercentage;
     }
@@ -48,14 +46,5 @@ public class GratuityTypeEntity {
         int result = gratuityType;
         result = 31 * result + gratuityPercentage;
         return result;
-    }
-
-    @OneToMany(mappedBy = "gratuityTypeByGratuityType")
-    public Collection<GratuityEntity> getGratuitiesByGratuityType() {
-        return gratuitiesByGratuityType;
-    }
-
-    public void setGratuitiesByGratuityType(Collection<GratuityEntity> gratuitiesByGratuityType) {
-        this.gratuitiesByGratuityType = gratuitiesByGratuityType;
     }
 }

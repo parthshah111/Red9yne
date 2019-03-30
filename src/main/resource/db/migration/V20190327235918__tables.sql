@@ -366,10 +366,10 @@ create table Event
       references Event_Status (Event_Type),
   Num_Guest int not null,
   Venue varchar(255) not null,
-  Food_Arrival time not null,
-  Cocktail_Starts time not null,
+  Food_Arrival varchar(24) not null,
+  Cocktail_Starts varchar(24) not null,
   Dinner_Status varchar(255) not null,
-  Dinner_Ends time not null,
+  Dinner_Ends varchar(24) not null,
   Clean_Up varchar(255) not null
 )
 go

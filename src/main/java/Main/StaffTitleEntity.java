@@ -1,17 +1,15 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "StaffTitle", schema = "dbo", catalog = "newDB")
+@Table(name = "StaffTitle", schema = "dbo", catalog = "DBdummy2")
 public class StaffTitleEntity {
     private int tittleId;
     private String tittleDesc;
-    private Collection<StaffEntity> staffByTittleId;
 
     @Id
-    @Column(name = "Tittle_ID", nullable = false)
+    @Column(name = "Tittle_ID")
     public int getTittleId() {
         return tittleId;
     }
@@ -21,7 +19,7 @@ public class StaffTitleEntity {
     }
 
     @Basic
-    @Column(name = "Tittle_Desc", nullable = false, length = 100)
+    @Column(name = "Tittle_Desc")
     public String getTittleDesc() {
         return tittleDesc;
     }
@@ -48,14 +46,5 @@ public class StaffTitleEntity {
         int result = tittleId;
         result = 31 * result + (tittleDesc != null ? tittleDesc.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "staffTitleByTitleId")
-    public Collection<StaffEntity> getStaffByTittleId() {
-        return staffByTittleId;
-    }
-
-    public void setStaffByTittleId(Collection<StaffEntity> staffByTittleId) {
-        this.staffByTittleId = staffByTittleId;
     }
 }

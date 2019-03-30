@@ -3,7 +3,7 @@ package Main;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Billing_ID", schema = "dbo", catalog = "newDB")
+@Table(name = "Billing_ID", schema = "dbo", catalog = "DBdummy2")
 public class BillingIdEntity {
     private int billingId;
     private int paymentId;
@@ -12,10 +12,9 @@ public class BillingIdEntity {
     private String billingState;
     private int billingZip;
     private int billingCountry;
-    private PaymentInformationEntity paymentInformationByPaymentId;
 
     @Id
-    @Column(name = "Billing_ID", nullable = false)
+    @Column(name = "Billing_ID")
     public int getBillingId() {
         return billingId;
     }
@@ -24,18 +23,18 @@ public class BillingIdEntity {
         this.billingId = billingId;
     }
 
-//    @Basic
-//    @Column(name = "Payment_ID", nullable = false)
-//    public int getPaymentId() {
-//        return paymentId;
-//    }
-//
-//    public void setPaymentId(int paymentId) {
-//        this.paymentId = paymentId;
-//    }
+    @Basic
+    @Column(name = "Payment_ID")
+    public int getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(int paymentId) {
+        this.paymentId = paymentId;
+    }
 
     @Basic
-    @Column(name = "Billing_Address", nullable = false, length = 255)
+    @Column(name = "Billing_Address")
     public String getBillingAddress() {
         return billingAddress;
     }
@@ -45,7 +44,7 @@ public class BillingIdEntity {
     }
 
     @Basic
-    @Column(name = "Billing_City", nullable = false, length = 255)
+    @Column(name = "Billing_City")
     public String getBillingCity() {
         return billingCity;
     }
@@ -55,7 +54,7 @@ public class BillingIdEntity {
     }
 
     @Basic
-    @Column(name = "Billing_State", nullable = false, length = 2)
+    @Column(name = "Billing_State")
     public String getBillingState() {
         return billingState;
     }
@@ -65,7 +64,7 @@ public class BillingIdEntity {
     }
 
     @Basic
-    @Column(name = "Billing_Zip", nullable = false)
+    @Column(name = "Billing_Zip")
     public int getBillingZip() {
         return billingZip;
     }
@@ -75,7 +74,7 @@ public class BillingIdEntity {
     }
 
     @Basic
-    @Column(name = "Billing_Country", nullable = false)
+    @Column(name = "Billing_Country")
     public int getBillingCountry() {
         return billingCountry;
     }
@@ -113,15 +112,5 @@ public class BillingIdEntity {
         result = 31 * result + billingZip;
         result = 31 * result + billingCountry;
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Payment_ID", referencedColumnName = "Payment_ID", nullable = false)
-    public PaymentInformationEntity getPaymentInformationByPaymentId() {
-        return paymentInformationByPaymentId;
-    }
-
-    public void setPaymentInformationByPaymentId(PaymentInformationEntity paymentInformationByPaymentId) {
-        this.paymentInformationByPaymentId = paymentInformationByPaymentId;
     }
 }

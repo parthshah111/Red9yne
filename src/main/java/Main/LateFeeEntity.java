@@ -2,10 +2,9 @@ package Main;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Late_Fee", schema = "dbo", catalog = "newDB")
+@Table(name = "Late_Fee", schema = "dbo", catalog = "DBdummy2")
 public class LateFeeEntity {
     private int rentalId;
     private int reportId;
@@ -17,15 +16,9 @@ public class LateFeeEntity {
     private Timestamp lateDay;
     private double lateFee;
     private double lateTotal;
-    private ReportDateEntity reportDateByReportId;
-    private OrderEntity orderByOrderNo;
-    private CustomerEntity customerByCustomerId;
-    private SupplyStatusEntity supplyStatusBySupplyId;
-    private Collection<OrderEntity> ordersByRentalId;
-    private Collection<SupplyTotalEntity> supplyTotalsByRentalId;
 
     @Id
-    @Column(name = "Rental_ID", nullable = false)
+    @Column(name = "Rental_ID")
     public int getRentalId() {
         return rentalId;
     }
@@ -34,48 +27,48 @@ public class LateFeeEntity {
         this.rentalId = rentalId;
     }
 
-//    @Basic
-//    @Column(name = "Report_ID", nullable = false)
-//    public int getReportId() {
-//        return reportId;
-//    }
-//
-//    public void setReportId(int reportId) {
-//        this.reportId = reportId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Order_No", nullable = false)
-//    public int getOrderNo() {
-//        return orderNo;
-//    }
-//
-//    public void setOrderNo(int orderNo) {
-//        this.orderNo = orderNo;
-//    }
-//
-//    @Basic
-//    @Column(name = "Customer_ID", nullable = false)
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Supply_ID", nullable = false)
-//    public int getSupplyId() {
-//        return supplyId;
-//    }
-//
-//    public void setSupplyId(int supplyId) {
-//        this.supplyId = supplyId;
-//    }
+    @Basic
+    @Column(name = "Report_ID")
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
 
     @Basic
-    @Column(name = "Rental_Exp", nullable = false)
+    @Column(name = "Order_No")
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    @Basic
+    @Column(name = "Customer_ID")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    @Basic
+    @Column(name = "Supply_ID")
+    public int getSupplyId() {
+        return supplyId;
+    }
+
+    public void setSupplyId(int supplyId) {
+        this.supplyId = supplyId;
+    }
+
+    @Basic
+    @Column(name = "Rental_Exp")
     public int getRentalExp() {
         return rentalExp;
     }
@@ -85,7 +78,7 @@ public class LateFeeEntity {
     }
 
     @Basic
-    @Column(name = "Rental_Return", nullable = false)
+    @Column(name = "Rental_Return")
     public int getRentalReturn() {
         return rentalReturn;
     }
@@ -95,7 +88,7 @@ public class LateFeeEntity {
     }
 
     @Basic
-    @Column(name = "Late_Day", nullable = false)
+    @Column(name = "Late_Day")
     public Timestamp getLateDay() {
         return lateDay;
     }
@@ -105,7 +98,7 @@ public class LateFeeEntity {
     }
 
     @Basic
-    @Column(name = "Late_Fee", nullable = false, precision = 0)
+    @Column(name = "Late_Fee")
     public double getLateFee() {
         return lateFee;
     }
@@ -115,7 +108,7 @@ public class LateFeeEntity {
     }
 
     @Basic
-    @Column(name = "Late_Total", nullable = false, precision = 0)
+    @Column(name = "Late_Total")
     public double getLateTotal() {
         return lateTotal;
     }
@@ -162,63 +155,5 @@ public class LateFeeEntity {
         temp = Double.doubleToLongBits(lateTotal);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID", nullable = false)
-    public ReportDateEntity getReportDateByReportId() {
-        return reportDateByReportId;
-    }
-
-    public void setReportDateByReportId(ReportDateEntity reportDateByReportId) {
-        this.reportDateByReportId = reportDateByReportId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Order_No", referencedColumnName = "Order_no", nullable = false)
-    public OrderEntity getOrderByOrderNo() {
-        return orderByOrderNo;
-    }
-
-    public void setOrderByOrderNo(OrderEntity orderByOrderNo) {
-        this.orderByOrderNo = orderByOrderNo;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "CUSTOMER_ID", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
-        return customerByCustomerId;
-    }
-
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
-        this.customerByCustomerId = customerByCustomerId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Supply_ID", referencedColumnName = "SUPPLY_ID", nullable = false)
-    public SupplyStatusEntity getSupplyStatusBySupplyId() {
-        return supplyStatusBySupplyId;
-    }
-
-    public void setSupplyStatusBySupplyId(SupplyStatusEntity supplyStatusBySupplyId) {
-        this.supplyStatusBySupplyId = supplyStatusBySupplyId;
-    }
-
-    @OneToMany(mappedBy = "lateFeeByRentalId")
-    public Collection<OrderEntity> getOrdersByRentalId() {
-        return ordersByRentalId;
-    }
-
-    public void setOrdersByRentalId(Collection<OrderEntity> ordersByRentalId) {
-        this.ordersByRentalId = ordersByRentalId;
-    }
-
-    @OneToMany(mappedBy = "lateFeeByRentalId")
-    public Collection<SupplyTotalEntity> getSupplyTotalsByRentalId() {
-        return supplyTotalsByRentalId;
-    }
-
-    public void setSupplyTotalsByRentalId(Collection<SupplyTotalEntity> supplyTotalsByRentalId) {
-        this.supplyTotalsByRentalId = supplyTotalsByRentalId;
     }
 }

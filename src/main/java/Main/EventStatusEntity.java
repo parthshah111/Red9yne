@@ -1,17 +1,15 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Event_Status", schema = "dbo", catalog = "newDB")
+@Table(name = "Event_Status", schema = "dbo", catalog = "DBdummy2")
 public class EventStatusEntity {
     private int eventType;
     private String eventDesc;
-    private Collection<EventEntity> eventsByEventType;
 
     @Id
-    @Column(name = "Event_Type", nullable = false)
+    @Column(name = "Event_Type")
     public int getEventType() {
         return eventType;
     }
@@ -21,7 +19,7 @@ public class EventStatusEntity {
     }
 
     @Basic
-    @Column(name = "Event_Desc", nullable = false, length = 100)
+    @Column(name = "Event_Desc")
     public String getEventDesc() {
         return eventDesc;
     }
@@ -48,14 +46,5 @@ public class EventStatusEntity {
         int result = eventType;
         result = 31 * result + (eventDesc != null ? eventDesc.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "eventStatusByEventType")
-    public Collection<EventEntity> getEventsByEventType() {
-        return eventsByEventType;
-    }
-
-    public void setEventsByEventType(Collection<EventEntity> eventsByEventType) {
-        this.eventsByEventType = eventsByEventType;
     }
 }

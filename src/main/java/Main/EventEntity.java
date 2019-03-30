@@ -3,7 +3,7 @@ package Main;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Event", schema = "dbo", catalog = "newDB")
+@Table(name = "Event", schema = "dbo", catalog = "DBdummy2")
 public class EventEntity {
     private int reportId;
     private int orderNo;
@@ -17,43 +17,39 @@ public class EventEntity {
     private String dinnerStatus;
     private String dinnerEnds;
     private String cleanUp;
-    private ReportDateEntity reportDateByReportId;
-    private OrderEntity orderByOrderNo;
-    private CustomerEntity customerByCustomerId;
-    private EventStatusEntity eventStatusByEventType;
 
-//    @Basic
-//    @Column(name = "Report_ID", nullable = false)
-//    public int getReportId() {
-//        return reportId;
-//    }
-//
-//    public void setReportId(int reportId) {
-//        this.reportId = reportId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Order_No", nullable = false)
-//    public int getOrderNo() {
-//        return orderNo;
-//    }
-//
-//    public void setOrderNo(int orderNo) {
-//        this.orderNo = orderNo;
-//    }
-//
-//    @Basic
-//    @Column(name = "Customer_ID", nullable = false)
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
+    @Basic
+    @Column(name = "Report_ID")
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    @Basic
+    @Column(name = "Order_No")
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    @Basic
+    @Column(name = "Customer_ID")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     @Id
-    @Column(name = "Event_ID", nullable = false)
+    @Column(name = "Event_ID")
     public int getEventId() {
         return eventId;
     }
@@ -62,18 +58,18 @@ public class EventEntity {
         this.eventId = eventId;
     }
 
-//    @Basic
-//    @Column(name = "Event_Type", nullable = false)
-//    public int getEventType() {
-//        return eventType;
-//    }
-//
-//    public void setEventType(int eventType) {
-//        this.eventType = eventType;
-//    }
+    @Basic
+    @Column(name = "Event_Type")
+    public int getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(int eventType) {
+        this.eventType = eventType;
+    }
 
     @Basic
-    @Column(name = "Num_Guest", nullable = false)
+    @Column(name = "Num_Guest")
     public int getNumGuest() {
         return numGuest;
     }
@@ -83,7 +79,7 @@ public class EventEntity {
     }
 
     @Basic
-    @Column(name = "Venue", nullable = false, length = 255)
+    @Column(name = "Venue")
     public String getVenue() {
         return venue;
     }
@@ -93,7 +89,7 @@ public class EventEntity {
     }
 
     @Basic
-    @Column(name = "Food_Arrival", nullable = false)
+    @Column(name = "Food_Arrival")
     public String getFoodArrival() {
         return foodArrival;
     }
@@ -103,7 +99,7 @@ public class EventEntity {
     }
 
     @Basic
-    @Column(name = "Cocktail_Starts", nullable = false)
+    @Column(name = "Cocktail_Starts")
     public String getCocktailStarts() {
         return cocktailStarts;
     }
@@ -113,7 +109,7 @@ public class EventEntity {
     }
 
     @Basic
-    @Column(name = "Dinner_Status", nullable = false, length = 255)
+    @Column(name = "Dinner_Status")
     public String getDinnerStatus() {
         return dinnerStatus;
     }
@@ -123,7 +119,7 @@ public class EventEntity {
     }
 
     @Basic
-    @Column(name = "Dinner_Ends", nullable = false)
+    @Column(name = "Dinner_Ends")
     public String getDinnerEnds() {
         return dinnerEnds;
     }
@@ -133,13 +129,37 @@ public class EventEntity {
     }
 
     @Basic
-    @Column(name = "Clean_Up", nullable = false, length = 255)
+    @Column(name = "Clean_Up")
     public String getCleanUp() {
         return cleanUp;
     }
 
     public void setCleanUp(String cleanUp) {
         this.cleanUp = cleanUp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        EventEntity that = (EventEntity) o;
+
+        if (reportId != that.reportId) return false;
+        if (orderNo != that.orderNo) return false;
+        if (customerId != that.customerId) return false;
+        if (eventId != that.eventId) return false;
+        if (eventType != that.eventType) return false;
+        if (numGuest != that.numGuest) return false;
+        if (venue != null ? !venue.equals(that.venue) : that.venue != null) return false;
+        if (foodArrival != null ? !foodArrival.equals(that.foodArrival) : that.foodArrival != null) return false;
+        if (cocktailStarts != null ? !cocktailStarts.equals(that.cocktailStarts) : that.cocktailStarts != null)
+            return false;
+        if (dinnerStatus != null ? !dinnerStatus.equals(that.dinnerStatus) : that.dinnerStatus != null) return false;
+        if (dinnerEnds != null ? !dinnerEnds.equals(that.dinnerEnds) : that.dinnerEnds != null) return false;
+        if (cleanUp != null ? !cleanUp.equals(that.cleanUp) : that.cleanUp != null) return false;
+
+        return true;
     }
 
     @Override
@@ -158,45 +178,4 @@ public class EventEntity {
         result = 31 * result + (cleanUp != null ? cleanUp.hashCode() : 0);
         return result;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID", nullable = false)
-    public ReportDateEntity getReportDateByReportId() {
-        return reportDateByReportId;
-    }
-
-    public void setReportDateByReportId(ReportDateEntity reportDateByReportId) {
-        this.reportDateByReportId = reportDateByReportId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Order_No", referencedColumnName = "Order_no", nullable = false)
-    public OrderEntity getOrderByOrderNo() {
-        return orderByOrderNo;
-    }
-
-    public void setOrderByOrderNo(OrderEntity orderByOrderNo) {
-        this.orderByOrderNo = orderByOrderNo;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "CUSTOMER_ID", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
-        return customerByCustomerId;
-    }
-
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
-        this.customerByCustomerId = customerByCustomerId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Event_Type", referencedColumnName = "Event_Type", nullable = false)
-    public EventStatusEntity getEventStatusByEventType() {
-        return eventStatusByEventType;
-    }
-
-    public void setEventStatusByEventType(EventStatusEntity eventStatusByEventType) {
-        this.eventStatusByEventType = eventStatusByEventType;
-    }
 }
-

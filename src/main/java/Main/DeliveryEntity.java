@@ -1,17 +1,15 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Delivery", schema = "dbo", catalog = "newDB")
+@Table(name = "Delivery", schema = "dbo", catalog = "DBdummy2")
 public class DeliveryEntity {
     private int deliveryId;
     private double deliveryFee;
-    private Collection<OrderEntity> ordersByDeliveryId;
 
     @Id
-    @Column(name = "DELIVERY_ID", nullable = false)
+    @Column(name = "DELIVERY_ID")
     public int getDeliveryId() {
         return deliveryId;
     }
@@ -21,7 +19,7 @@ public class DeliveryEntity {
     }
 
     @Basic
-    @Column(name = "DELIVERY_FEE", nullable = false, precision = 0)
+    @Column(name = "DELIVERY_FEE")
     public double getDeliveryFee() {
         return deliveryFee;
     }
@@ -51,14 +49,5 @@ public class DeliveryEntity {
         temp = Double.doubleToLongBits(deliveryFee);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @OneToMany(mappedBy = "deliveryByDeliveryId")
-    public Collection<OrderEntity> getOrdersByDeliveryId() {
-        return ordersByDeliveryId;
-    }
-
-    public void setOrdersByDeliveryId(Collection<OrderEntity> ordersByDeliveryId) {
-        this.ordersByDeliveryId = ordersByDeliveryId;
     }
 }

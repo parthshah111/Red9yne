@@ -1,17 +1,15 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Order_Status", schema = "dbo", catalog = "newDB")
+@Table(name = "Order_Status", schema = "dbo", catalog = "DBdummy2")
 public class OrderStatusEntity {
     private int orderStatus;
     private int orderDesc;
-    private Collection<OrderEntity> ordersByOrderStatus;
 
     @Id
-    @Column(name = "Order_Status", nullable = false)
+    @Column(name = "Order_Status")
     public int getOrderStatus() {
         return orderStatus;
     }
@@ -21,7 +19,7 @@ public class OrderStatusEntity {
     }
 
     @Basic
-    @Column(name = "Order_Desc", nullable = false)
+    @Column(name = "Order_Desc")
     public int getOrderDesc() {
         return orderDesc;
     }
@@ -48,14 +46,5 @@ public class OrderStatusEntity {
         int result = orderStatus;
         result = 31 * result + orderDesc;
         return result;
-    }
-
-    @OneToMany(mappedBy = "orderStatusByOrderStatus")
-    public Collection<OrderEntity> getOrdersByOrderStatus() {
-        return ordersByOrderStatus;
-    }
-
-    public void setOrdersByOrderStatus(Collection<OrderEntity> ordersByOrderStatus) {
-        this.ordersByOrderStatus = ordersByOrderStatus;
     }
 }

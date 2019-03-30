@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "Manager_Note", schema = "dbo", catalog = "newDB")
+@Table(name = "Manager_Note", schema = "dbo", catalog = "DBdummy2")
 public class ManagerNoteEntity {
     private int reportId;
     private int orderNo;
@@ -13,53 +13,49 @@ public class ManagerNoteEntity {
     private int noteId;
     private String noteDesc;
     private Date noteDate;
-    private ReportDateEntity reportDateByReportId;
-    private OrderEntity orderByOrderNo;
-    private CustomerEntity customerByCustomerId;
-    private ManagerEntity managerByManagerId;
 
-//    @Basic
-//    @Column(name = "Report_ID", nullable = false)
-//    public int getReportId() {
-//        return reportId;
-//    }
-//
-//    public void setReportId(int reportId) {
-//        this.reportId = reportId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Order_No", nullable = false)
-//    public int getOrderNo() {
-//        return orderNo;
-//    }
-//
-//    public void setOrderNo(int orderNo) {
-//        this.orderNo = orderNo;
-//    }
-//
-//    @Basic
-//    @Column(name = "Customer_ID", nullable = false)
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
-//
-//    @Basic
-//    @Column(name = "Manager_ID", nullable = false)
-//    public int getManagerId() {
-//        return managerId;
-//    }
-//
-//    public void setManagerId(int managerId) {
-//        this.managerId = managerId;
-//    }
+    @Basic
+    @Column(name = "Report_ID")
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    @Basic
+    @Column(name = "Order_No")
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    @Basic
+    @Column(name = "Customer_ID")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    @Basic
+    @Column(name = "Manager_ID")
+    public int getManagerId() {
+        return managerId;
+    }
+
+    public void setManagerId(int managerId) {
+        this.managerId = managerId;
+    }
 
     @Id
-    @Column(name = "Note_ID", nullable = false)
+    @Column(name = "Note_ID")
     public int getNoteId() {
         return noteId;
     }
@@ -69,7 +65,7 @@ public class ManagerNoteEntity {
     }
 
     @Basic
-    @Column(name = "Note_Desc", nullable = false, length = 100)
+    @Column(name = "Note_Desc")
     public String getNoteDesc() {
         return noteDesc;
     }
@@ -79,7 +75,7 @@ public class ManagerNoteEntity {
     }
 
     @Basic
-    @Column(name = "Note_Date", nullable = false)
+    @Column(name = "Note_Date")
     public Date getNoteDate() {
         return noteDate;
     }
@@ -116,45 +112,5 @@ public class ManagerNoteEntity {
         result = 31 * result + (noteDesc != null ? noteDesc.hashCode() : 0);
         result = 31 * result + (noteDate != null ? noteDate.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID", nullable = false)
-    public ReportDateEntity getReportDateByReportId() {
-        return reportDateByReportId;
-    }
-
-    public void setReportDateByReportId(ReportDateEntity reportDateByReportId) {
-        this.reportDateByReportId = reportDateByReportId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Order_No", referencedColumnName = "Order_no", nullable = false)
-    public OrderEntity getOrderByOrderNo() {
-        return orderByOrderNo;
-    }
-
-    public void setOrderByOrderNo(OrderEntity orderByOrderNo) {
-        this.orderByOrderNo = orderByOrderNo;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "CUSTOMER_ID", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
-        return customerByCustomerId;
-    }
-
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
-        this.customerByCustomerId = customerByCustomerId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Manager_ID", referencedColumnName = "MANAGER_ID", nullable = false)
-    public ManagerEntity getManagerByManagerId() {
-        return managerByManagerId;
-    }
-
-    public void setManagerByManagerId(ManagerEntity managerByManagerId) {
-        this.managerByManagerId = managerByManagerId;
     }
 }

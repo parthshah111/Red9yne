@@ -3,26 +3,24 @@ package Main;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Appointment_Customer", schema = "dbo", catalog = "newDB")
+@Table(name = "Appointment_Customer", schema = "dbo", catalog = "DBdummy2")
 public class AppointmentCustomerEntity {
     private int appointmentId;
     private int appCusId;
     private int customerId;
-    private AppointmentEntity appointmentByAppointmentId;
-    private CustomerEntity customerByCustomerId;
 
-//    @Basic
-//    @Column(name = "Appointment_ID", nullable = false)
-//    public int getAppointmentId() {
-//        return appointmentId;
-//    }
-//
-//    public void setAppointmentId(int appointmentId) {
-//        this.appointmentId = appointmentId;
-//    }
+    @Basic
+    @Column(name = "Appointment_ID")
+    public int getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(int appointmentId) {
+        this.appointmentId = appointmentId;
+    }
 
     @Id
-    @Column(name = "App_Cus_ID", nullable = false)
+    @Column(name = "App_Cus_ID")
     public int getAppCusId() {
         return appCusId;
     }
@@ -31,15 +29,15 @@ public class AppointmentCustomerEntity {
         this.appCusId = appCusId;
     }
 
-//    @Basic
-//    @Column(name = "Customer_ID", nullable = false)
-//    public int getCustomerId() {
-//        return customerId;
-//    }
-//
-//    public void setCustomerId(int customerId) {
-//        this.customerId = customerId;
-//    }
+    @Basic
+    @Column(name = "Customer_ID")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -61,25 +59,5 @@ public class AppointmentCustomerEntity {
         result = 31 * result + appCusId;
         result = 31 * result + customerId;
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Appointment_ID", referencedColumnName = "Appointment_ID", nullable = false)
-    public AppointmentEntity getAppointmentByAppointmentId() {
-        return appointmentByAppointmentId;
-    }
-
-    public void setAppointmentByAppointmentId(AppointmentEntity appointmentByAppointmentId) {
-        this.appointmentByAppointmentId = appointmentByAppointmentId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Customer_ID", referencedColumnName = "CUSTOMER_ID", nullable = false)
-    public CustomerEntity getCustomerByCustomerId() {
-        return customerByCustomerId;
-    }
-
-    public void setCustomerByCustomerId(CustomerEntity customerByCustomerId) {
-        this.customerByCustomerId = customerByCustomerId;
     }
 }

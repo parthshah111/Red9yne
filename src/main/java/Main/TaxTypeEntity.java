@@ -1,17 +1,15 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "Tax_Type", schema = "dbo", catalog = "newDB")
+@Table(name = "Tax_Type", schema = "dbo", catalog = "DBdummy2")
 public class TaxTypeEntity {
     private int taxType;
     private int taxPercentage;
-    private Collection<TaxEntity> taxesByTaxType;
 
     @Id
-    @Column(name = "Tax_Type", nullable = false)
+    @Column(name = "Tax_Type")
     public int getTaxType() {
         return taxType;
     }
@@ -21,7 +19,7 @@ public class TaxTypeEntity {
     }
 
     @Basic
-    @Column(name = "Tax_Percentage", nullable = false)
+    @Column(name = "Tax_Percentage")
     public int getTaxPercentage() {
         return taxPercentage;
     }
@@ -48,14 +46,5 @@ public class TaxTypeEntity {
         int result = taxType;
         result = 31 * result + taxPercentage;
         return result;
-    }
-
-    @OneToMany(mappedBy = "taxTypeByTaxType")
-    public Collection<TaxEntity> getTaxesByTaxType() {
-        return taxesByTaxType;
-    }
-
-    public void setTaxesByTaxType(Collection<TaxEntity> taxesByTaxType) {
-        this.taxesByTaxType = taxesByTaxType;
     }
 }

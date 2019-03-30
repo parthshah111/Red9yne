@@ -5,59 +5,7 @@
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://172.26.54.133:1433;database=newDB</jdbc-url>
-      <driver-properties>
-        <property name="applicationName" value="DataGrip" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="persistenceUnit/EclipseLink" uuid="80deec25-19c3-4700-b338-892dda6ae307">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>EclipseLink
-
-C:/Users/Vivia/IdeaProjects/Red9yne/src/META-INF/persistence.xml</remarks>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://172.26.54.133:1433;database=newDB</jdbc-url>
-      <driver-properties>
-        <property name="applicationName" value="DataGrip" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="persistenceUnit/OpenJPA" uuid="b934de12-1d55-4d4b-a395-93a4d419245c">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>OpenJPA
-
-C:/Users/Vivia/IdeaProjects/Red9yne/src/META-INF/persistence.xml</remarks>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://172.26.54.133:1433;database=newDB</jdbc-url>
-      <driver-properties>
-        <property name="applicationName" value="DataGrip" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="persistenceUnit/TopLink" uuid="aeb9b831-0589-48f1-b260-38aad4b46fb1">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>TopLink
-
-C:/Users/Vivia/IdeaProjects/Red9yne/src/META-INF/persistence.xml</remarks>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://172.26.54.133:1433;database=newDB</jdbc-url>
-      <driver-properties>
-        <property name="applicationName" value="DataGrip" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="persistenceUnit/Hibernate" uuid="eae8235b-43fa-4f85-86a7-59072b235900">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate
-
-C:/Users/Vivia/IdeaProjects/Red9yne/src/META-INF/persistence.xml</remarks>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://172.26.54.133:1433;database=newDB</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://172.26.54.133:1433;database=DBdummy2</jdbc-url>
       <driver-properties>
         <property name="applicationName" value="DataGrip" />
       </driver-properties>

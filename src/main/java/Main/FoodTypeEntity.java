@@ -1,17 +1,15 @@
 package Main;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "FoodType", schema = "dbo", catalog = "newDB")
+@Table(name = "FoodType", schema = "dbo", catalog = "DBdummy2")
 public class FoodTypeEntity {
     private int foodType;
     private String foodDesc;
-    private Collection<FoodEntity> foodsByFoodType;
 
     @Id
-    @Column(name = "Food_Type", nullable = false)
+    @Column(name = "Food_Type")
     public int getFoodType() {
         return foodType;
     }
@@ -21,7 +19,7 @@ public class FoodTypeEntity {
     }
 
     @Basic
-    @Column(name = "Food_Desc", nullable = false, length = 255)
+    @Column(name = "Food_Desc")
     public String getFoodDesc() {
         return foodDesc;
     }
@@ -48,14 +46,5 @@ public class FoodTypeEntity {
         int result = foodType;
         result = 31 * result + (foodDesc != null ? foodDesc.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "foodTypeByFoodType")
-    public Collection<FoodEntity> getFoodsByFoodType() {
-        return foodsByFoodType;
-    }
-
-    public void setFoodsByFoodType(Collection<FoodEntity> foodsByFoodType) {
-        this.foodsByFoodType = foodsByFoodType;
     }
 }
