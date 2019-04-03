@@ -5,15 +5,9 @@ create table [Order]
       primary key nonclustered,
   Report_ID int not null,
   Customer_ID int not null,
-  FoodMenu_ID int not null,
-  Dessert_MenuID int not null,
-  TaxOrder_ID int not null,
   Rental_ID int not null,
-  SupplyOrder_ID int not null,
   Delivery_ID int not null,
   Staff_ID int not null,
-  GratuityOrder_ID int not null,
-  Drink_MenuID int not null,
   Order_Status int not null,
   Order_Total double precision not null
 )
@@ -85,23 +79,11 @@ create table StaffTitle
 )
 go
 
-create table Event_Status
-(
-  Event_Type int identity
-    constraint Event_Status_pk
-      primary key nonclustered,
-  Event_Desc varchar(100) not null
-)
-go
-
 create table Payment_Information
 (
   Report_ID int not null
     constraint Payment_Information_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Payment_Information_Order_Order_No_fk
-      references [Order] (Order_No),
   Customer_ID int not null
     constraint Payment_Information_Customer_CUSTOMER_ID_fk
       references Customer (CUSTOMER_ID),
@@ -137,12 +119,6 @@ create table Manager_Note
   Report_ID int not null
     constraint Manager_Note_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Manager_Note_Order_Order_No_fk
-      references [Order] (Order_No),
-  Customer_ID int not null
-    constraint Manager_Note_Customer_CUSTOMER_ID_fk
-      references Customer (CUSTOMER_ID),
   Manager_ID int not null
     constraint Manager_Note_Manager_MANAGER_ID_fk
       references Manager (MANAGER_ID),
@@ -154,23 +130,14 @@ create table Manager_Note
 )
 go
 
-create table Drink_Menu
+create table Order_Drinks
 (
-  Report_ID int not null
-    constraint Drink_Menu_ReportDate_Report_ID_fk
-      references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Drink_Menu_Order_Order_No_fk
-      references [Order] (Order_No),
-  Customer_ID int not null
-    constraint Drink_Menu_Customer_CUSTOMER_ID_fk
-      references Customer (CUSTOMER_ID),
-  Drink_MenuID int identity
-    constraint Drink_Menu_pk
-      primary key nonclustered,
   Drink_ID int not null
-    constraint Drink_Menu_Drink_DRINK_ID_fk
-      references Drink (DRINK_ID),
+    constraint Order_Drinks_Drink_Drink_ID_fk
+      references Drink (Drink_ID),
+  Order_No int not null
+    constraint Order_Drinks_Order_Order_No_fk
+      references [Order] (Order_No),
   Drink_Qty int not null,
   Drink_Total double precision not null
 )
@@ -187,23 +154,14 @@ create table Dessert
 )
 go
 
-create table Dessert_Menu
+create table Order_Dessert
 (
-  Report_ID int not null
-    constraint Dessert_Menu_ReportDate_Report_ID_fk
-      references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Dessert_Menu_Order_Order_No_fk
-      references [Order] (Order_No),
-  Customer_ID int not null
-    constraint Dessert_Menu_Customer_CUSTOMER_ID_fk
-      references Customer (CUSTOMER_ID),
-  Dessert_Menu int identity
-    constraint Dessert_Menu_pk
-      primary key nonclustered,
   Dessert_ID int not null
-    constraint Dessert_Menu_Dessert_Dessert_ID_fk
+    constraint Order_Dessert_Dessert_Dessert_ID_fk
       references Dessert (Dessert_ID),
+  Order_No int not null
+    constraint Order_Dessert_Order_Order_No_fk
+      references [Order] (Order_No),
   Dessert_Qty int not null,
   Dessert_Total int not null
 )
@@ -231,34 +189,15 @@ create table Food
 )
 go
 
-create table Menu_Total
+create table Order_Food
 (
-  Report_ID int not null
-    constraint Menu_Total_ReportDate_Report_ID_fk
-      references ReportDate (Report_ID),
-  FoodMenu_ID int identity
-    constraint Menu_Total_pk
-      primary key nonclustered,
-  Order_No int not null
-    constraint Menu_Total_Order_Order_No_fk
+  Order_No int primary key
       references [Order] (Order_No),
-  Customer_ID int not null
-    constraint Menu_Total_Customer_CUSTOMER_ID_fk
-      references Customer (CUSTOMER_ID),
   Food_ID int not null
-    constraint Menu_Total_Food_Food_ID_fk
+    constraint Order_Food_Food_Food_ID_fk
       references Food (Food_ID),
   Food_Qty int not null,
   Food_Total int not null
-)
-go
-
-create table Appointment_Status
-(
-  Appointment_Type int identity
-    constraint Appointment_Status_pk
-      primary key nonclustered,
-  Appointment_Status int not null
 )
 go
 
@@ -267,9 +206,9 @@ create table Appointment
   Appointment_ID int identity
     constraint Appointment_pk
       primary key nonclustered,
-  Appointment_Type int not null
-    references Appointment_Status (Appointment_Type),
-  Appointment_Date int not null
+  Appointment_Type int not null,
+  Appointment_Date varchar(255) not null,
+  Appointment_Status varchar(255) not null
 )
 go
 
@@ -304,9 +243,6 @@ create table Tax
   Order_No int not null
     constraint Tax_Order_Order_No_fk
       references [Order] (Order_No),
-  Customer_ID int not null
-    constraint Tax_Customer_CUSTOMER_ID_fk
-      references Customer (CUSTOMER_ID),
   Tax_ID int identity
     constraint Tax_pk
       primary key nonclustered,
@@ -334,9 +270,6 @@ create table Gratuity
   Order_No int not null
     constraint Gratuity_Order_Order_No_fk
       references [Order] (Order_No),
-  Customer_ID int not null
-    constraint Gratuity_Customer_Customer_ID_fk
-      references Customer (Customer_ID),
   GratuityOrder_ID int identity
     constraint Gratuity_pk
       primary key nonclustered,
@@ -361,16 +294,14 @@ create table Event
   Event_ID int identity
     constraint Event_pk
       primary key nonclustered,
-  Event_Type int not null
-    constraint Event_Event_Status_Event_Type_fk
-      references Event_Status (Event_Type),
+  Event_Type int not null,
   Num_Guest int not null,
   Venue varchar(255) not null,
   Food_Arrival varchar(24) not null,
   Cocktail_Starts varchar(24) not null,
   Dinner_Status varchar(255) not null,
   Dinner_Ends varchar(24) not null,
-  Clean_Up varchar(255) not null
+  Event_status int not null
 )
 go
 
@@ -414,24 +345,28 @@ create table Supply_Total
   Report_ID int not null
     constraint Supply_Total_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Supply_Total_Order_Order_No_fk
-      references [Order] (Order_No),
-  Customer_ID int not null
-    constraint Supply_Total_Customer_Customer_ID_fk
-      references Customer (Customer_ID),
   Rental_ID int not null
-    constraint Supply_Total_Late_Fee_RENTAL_ID_fk
-      references Late_Fee (RENTAL_ID),
-  SupplyOrder_ID int identity
-    constraint Supply_Total_pk
+    constraint Supply_Late_Fee_Rental_ID_fk
+      references Late_Fee (Rental_ID),
+  Supply_ID int identity
+    constraint [Supply_Total_pk]
       primary key nonclustered,
-  Supply_ID int not null
-    constraint Supply_Total_Supply_Supply_ID_fk
-      references Supply_Status (SUPPLY_ID),
   Supply_Qty int not null,
   Supply_Fee double precision not null,
   Supply_Total double precision not null
+)
+go
+
+create table Supply_Order
+(
+  Order_No int not null
+    constraint Supply_Order_Order_Order_No_fk
+      references [Order] (Order_No),
+  Supply_ID int not null
+    constraint Supply_Order_Supply_Total_Supply_ID_fk
+      references Supply_Total (Supply_ID),
+  Supply_Total double precision not null,
+  Supply_Qty int not null
 )
 go
 
@@ -474,32 +409,14 @@ alter table [Order]
   add constraint Order_Customer_CUSTOMER_ID_fk
     foreign key (Customer_ID) references Customer (Customer_ID);
 alter table [Order]
-  add constraint Order_Menu_Total_FoodMenu_ID_fk
-    foreign key (FoodMenu_ID) references Menu_Total (FoodMenu_ID);
-alter table [Order]
-  add constraint Order_Dessert_Menu_Dessert_Menu_fk
-    foreign key (Dessert_MenuID) references Dessert_Menu (Dessert_Menu);
-alter table [Order]
-  add constraint Order_Tax_TaxOrder_ID_fk
-    foreign key (TaxOrder_ID) references Tax (Tax_ID);
-alter table [Order]
   add constraint Order_Late_Fee_Rental_ID_fk
     foreign key (Rental_ID) references Late_fee (RENTAL_ID);
-alter table [Order]
-  add constraint Order_Supply_Total_SupplyOrder_ID_fk
-    foreign key (SupplyOrder_ID) references Supply_Total (SupplyOrder_ID);
 alter table [Order]
   add constraint Order_Delivery_DELIVERY_ID_fk
     foreign key (Delivery_ID) references Delivery (Delivery_ID);
 alter table [Order]
   add constraint Order_Staff_Staff_ID_fk
     foreign key (Staff_ID) references Staff (Staff_ID);
-alter table [Order]
-  add constraint Order_Gratuity_GratuityOrder_ID_fk
-    foreign key (GratuityOrder_ID) references Gratuity (GratuityOrder_ID);
-alter table [Order]
-  add constraint Order_Drink_Menu_Drink_MenuID_fk
-    foreign key (Drink_MenuID) references Drink_Menu (Drink_MenuID);
 alter table [Order]
   add constraint Order_Order_Status_Order_Status_fk
     foreign key (Order_Status) references Order_Status (Order_Status);
