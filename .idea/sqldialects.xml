@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/Appointment_Status.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/Dessert.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/Drink.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/Event_Status.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/FoodType.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/Manager.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/Order_Status.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/ReportDate.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/StaffTitle.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/Tax_Type.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/_Order_.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/customer.sql" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sql file/delivery.sql" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resource/db/migration/V20190327235918__tables.sql" dialect="TSQL" />
   </component>
 </project>
