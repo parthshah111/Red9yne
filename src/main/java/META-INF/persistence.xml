@@ -34,7 +34,7 @@
         <class>Main.TaxTypeEntity</class>
         <class>Main.BillingIdEntity</class>
         <properties>
-            <property name="toplink.jdbc.url" value="jdbc:sqlserver://172.26.54.133:1433;database=DBdummy2"/>
+            <property name="toplink.jdbc.url" value="jdbc:sqlserver://172.26.54.133:1433;database=DBdummy3"/>
             <property name="toplink.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
             <property name="hibernate.connection.url" value="jdbc:sqlserver://172.26.54.133:1433;database=newDB"/>
             <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>

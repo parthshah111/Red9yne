@@ -99,9 +99,9 @@ create table Payment_Information
   Report_ID int not null
     constraint Payment_Information_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Payment_Information_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Payment_Information_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Payment_Information_Customer_CUSTOMER_ID_fk
       references Customer (CUSTOMER_ID),
@@ -137,9 +137,9 @@ create table Manager_Note
   Report_ID int not null
     constraint Manager_Note_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Manager_Note_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Manager_Note_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Manager_Note_Customer_CUSTOMER_ID_fk
       references Customer (CUSTOMER_ID),
@@ -159,9 +159,9 @@ create table Drink_Menu
   Report_ID int not null
     constraint Drink_Menu_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Drink_Menu_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Drink_Menu_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Drink_Menu_Customer_CUSTOMER_ID_fk
     references Customer (CUSTOMER_ID),
@@ -192,9 +192,9 @@ create table Dessert_Menu
   Report_ID int not null
     constraint Dessert_Menu_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Dessert_Menu_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Dessert_Menu_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Dessert_Menu_Customer_CUSTOMER_ID_fk
       references Customer (CUSTOMER_ID),
@@ -239,9 +239,9 @@ create table Menu_Total
   FoodMenu_ID int identity
     constraint Menu_Total_pk
       primary key nonclustered,
-  Order_No int not null
-    constraint Menu_Total_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Menu_Total_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Menu_Total_Customer_CUSTOMER_ID_fk
       references Customer (CUSTOMER_ID),
@@ -301,9 +301,9 @@ create table Tax
   Report_ID int not null
     constraint Tax_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Tax_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Tax_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Tax_Customer_CUSTOMER_ID_fk
       references Customer (CUSTOMER_ID),
@@ -352,9 +352,9 @@ create table Event
   Report_ID int not null
     constraint Event_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Event_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Event_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Event_Customer_CUSTOMER_ID_fk
       references Customer (CUSTOMER_ID),
@@ -392,9 +392,9 @@ create table [Late_Fee]
   Report_ID int not null
     constraint [Late_Fee_ReportDate_Report_ID_fk]
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint [Late_Fee_Order_Order_No_fk]
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint [Late_Fee_Order_Order_No_fk]
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint [Late_Fee_Customer_CUSTOMER_ID_fk]
       references Customer (Customer_ID),
@@ -414,9 +414,9 @@ create table Supply_Total
   Report_ID int not null
     constraint Supply_Total_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Supply_Total_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Supply_Total_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Supply_Total_Customer_Customer_ID_fk
       references Customer (Customer_ID),
@@ -449,9 +449,9 @@ create table Staff
   Report_ID int not null
     constraint Staff_ReportDate_Report_ID_fk
       references ReportDate (Report_ID),
-  Order_No int not null
-    constraint Staff_Order_Order_No_fk
-      references [Order] (Order_No),
+--   Order_No int not null
+--     constraint Staff_Order_Order_No_fk
+--       references [Order] (Order_No),
   Customer_ID int not null
     constraint Staff_Customer_CUSTOMER_ID_fk
       references Customer (CUSTOMER_ID),
