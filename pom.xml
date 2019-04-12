@@ -78,10 +78,19 @@
                     <source>10</source>
                     <target>10</target>
                 </configuration>
+
             </plugin>
 
         </plugins>
-
+		<resources>
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.fxml</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
 
 </project>
