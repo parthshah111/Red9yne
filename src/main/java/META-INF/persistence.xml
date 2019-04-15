@@ -33,6 +33,7 @@
         <class>Main.TaxEntity</class>
         <class>Main.TaxTypeEntity</class>
         <class>Main.BillingIdEntity</class>
+        <class>Main.OrderTableEntity</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:sqlserver://172.26.54.133:1433;database=DBdummy3"/>
             <property name="toplink.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>

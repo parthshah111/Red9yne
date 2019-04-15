@@ -1,4 +1,4 @@
-create table [Order]
+create table Order_Table
 (
   Order_no int identity
     constraint Order_pk
@@ -64,15 +64,15 @@ create table Customer
   CUSTOMER_ID int identity
     constraint Customer_pk
       primary key nonclustered,
-  CUSTOMER_FNAME VARCHAR(24) not null,
-  CUSTOMER_LNAME VARCHAR(24) not null,
-  CUSTOMER_ADDRESS VARCHAR(50) not null,
-  CUSTOMER_CITY VARCHAR(24) not null,
-  CUSTOMER_STATE VARCHAR(24) not null,
-  CUSTOMER_COUNTRY VARCHAR(24) not null,
-  CUSTOMER_PHONE VARCHAR(24) not null,
-  CUSTOMER_ALTCONTACT VARCHAR(24),
-  CUSTOMER_EMAIL varchar(24) not null
+  CUSTOMER_FNAME VARCHAR(244) not null,
+  CUSTOMER_LNAME VARCHAR(244) not null,
+  CUSTOMER_ADDRESS VARCHAR(250) not null,
+  CUSTOMER_CITY VARCHAR(244) not null,
+  CUSTOMER_STATE VARCHAR(244) not null,
+  CUSTOMER_COUNTRY VARCHAR(244) not null,
+  CUSTOMER_PHONE VARCHAR(244) not null,
+  CUSTOMER_ALTCONTACT VARCHAR(244),
+  CUSTOMER_EMAIL varchar(244) not null
 )
 go
 
@@ -467,39 +467,39 @@ create table Staff
 )
 go
 
-alter table [Order]
+alter table Order_Table
   add constraint Order_ReportDate_Report_ID_fk
     foreign key (Report_ID) references ReportDate (Report_ID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Customer_CUSTOMER_ID_fk
     foreign key (Customer_ID) references Customer (Customer_ID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Menu_Total_FoodMenu_ID_fk
     foreign key (FoodMenu_ID) references Menu_Total (FoodMenu_ID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Dessert_Menu_Dessert_Menu_fk
     foreign key (Dessert_MenuID) references Dessert_Menu (Dessert_MenuID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Tax_TaxOrder_ID_fk
     foreign key (TaxOrder_ID) references Tax (Tax_ID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Late_Fee_Rental_ID_fk
     foreign key (Rental_ID) references Late_fee (RENTAL_ID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Supply_Total_SupplyOrder_ID_fk
     foreign key (SupplyOrder_ID) references Supply_Total (SupplyOrder_ID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Delivery_DELIVERY_ID_fk
     foreign key (Delivery_ID) references Delivery (Delivery_ID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Staff_Staff_ID_fk
     foreign key (Staff_ID) references Staff (Staff_ID);
 -- alter table [Order]
 --   add constraint Order_Gratuity_GratuityOrder_ID_fk
 --     foreign key (GratuityOrder_ID) references Gratuity (GratuityOrder_ID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Drink_Menu_Drink_MenuID_fk
     foreign key (Drink_MenuID) references Drink_Menu (Drink_MenuID);
-alter table [Order]
+alter table Order_Table
   add constraint Order_Order_Status_Order_StatusID_fk
     foreign key (Order_StatusID) references Order_Status (Order_StatusID);
