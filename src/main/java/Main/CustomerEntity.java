@@ -1,6 +1,7 @@
 package Main;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Customer", schema = "dbo", catalog = "DBdummy3")
@@ -15,6 +16,17 @@ public class CustomerEntity {
     private String customerPhone;
     private String customerAltcontact;
     private String customerEmail;
+    public List<OrderTableEntity> orderTableEntities;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customerEntity", cascade = CascadeType.ALL)
+    public List<OrderTableEntity> getOrderTableEntities() {
+        return orderTableEntities;
+    }
+
+    public void setOrderTableEntities(List<OrderTableEntity> orderTableEntities) {
+        this.orderTableEntities = orderTableEntities;
+    }
+
+
 
     @Id
     @Column(name = "CUSTOMER_ID", nullable = false)

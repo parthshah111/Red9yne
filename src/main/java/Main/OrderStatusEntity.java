@@ -8,6 +8,8 @@ public class OrderStatusEntity {
     private int orderStatusId;
     private String orderDesc;
 
+
+
     @Id
     @Column(name = "Order_StatusID", nullable = false)
     public int getOrderStatusId() {

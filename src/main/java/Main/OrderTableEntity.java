@@ -7,6 +7,23 @@ import javax.persistence.*;
 public class OrderTableEntity {
     private int orderNo;
     private double orderTotal;
+    public CustomerEntity customerEntity;
+
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_ID")
+    public CustomerEntity getCustomerEntity() {
+        CustomerEntity id = new CustomerEntity();
+        id.setCustomerId(customerEntity.getCustomerId());
+
+        return id;
+    }
+
+    public void setCustomerEntity(CustomerEntity customerEntity) {
+        this.customerEntity = customerEntity;
+        this.customerEntity.setCustomerId(customerEntity.getCustomerId());
+
+    }
 
     @Id
     @Column(name = "Order_no", nullable = false)

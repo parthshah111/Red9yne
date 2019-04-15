@@ -19,9 +19,8 @@ public class mainController
 {
     @Autowired
     private ConfigurableApplicationContext springContext;
+    @FXML Button Submit;
 
-    @FXML
-    Button Submit;
     @FXML
     public void Submit(ActionEvent actionEvent) throws IOException {
         Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -32,7 +31,7 @@ public class mainController
         jobFormController.setReturnScene(Submit.getScene());
         parent.setScene(scene);
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Orders.fxml"));
-//        fxmlLoader.setControllerFactory(applicationContext::getBean);
+//        fxmlLoader.setControllerFactory(springContext::getBean);
 //        Parent root = fxmlLoader.load();
 //        Stage stage = new Stage();
 //        stage.setScene(new Scene(root));
