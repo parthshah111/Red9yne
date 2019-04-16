@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
 
-public interface OrderEntityRepository extends JpaRepository<OrderTableEntity,Integer> {
+public interface OrderEntityRepository extends CrudRepository<OrderTableEntity,Integer> {
     @Query(value = "SELECT * FROM Order_Table",nativeQuery = true)
     public ArrayList<OrderTableEntity> getAllOrdersByOrderNo();
 }

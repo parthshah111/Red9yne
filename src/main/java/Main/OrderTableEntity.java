@@ -11,6 +11,50 @@ public class OrderTableEntity {
     public OrderStatusEntity orderStatusEntity;
     public MenuTotalEntity menuTotalEntity;
     public DrinkMenuEntity drinkMenuEntity;
+    public DessertMenuEntity dessertMenuEntity;
+    public DeliveryEntity deliveryEntity;
+    public LateFeeEntity lateFeeEntity;
+
+//    @ManyToOne
+//    @JoinColumn(name = "foodmenu_id", referencedColumnName = "foodmenu_id")
+//    public MenuTotalEntity getMenuTotalEntity() {
+//        return menuTotalEntity;
+//    }
+//
+//    public void setMenuTotalEntity(MenuTotalEntity menuTotalEntity) {
+//        this.menuTotalEntity = menuTotalEntity;
+//    }
+
+    @ManyToOne
+    @JoinColumn(name = "Rental_ID", referencedColumnName = "Rental_ID")
+    public LateFeeEntity getLateFeeEntity() {
+        return lateFeeEntity;
+    }
+
+    public void setLateFeeEntity(LateFeeEntity lateFeeEntity) {
+        this.lateFeeEntity = lateFeeEntity;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Dessert_MenuID", referencedColumnName = "Dessert_MenuID")
+    public DessertMenuEntity getDessertMenuEntity() {
+        return dessertMenuEntity;
+    }
+
+    public void setDessertMenuEntity(DessertMenuEntity dessertMenuEntity) {
+        this.dessertMenuEntity = dessertMenuEntity;
+    }
+
+
+    @ManyToOne
+    @JoinColumn(name = "Delivery_ID", referencedColumnName = "Delivery_ID")
+    public DeliveryEntity getDeliveryEntity() {
+        return deliveryEntity;
+    }
+
+    public void setDeliveryEntity(DeliveryEntity deliveryEntity) {
+        this.deliveryEntity = deliveryEntity;
+    }
 
     @ManyToOne
     @JoinColumn(name = "Drink_MenuID", referencedColumnName = "Drink_MenuID")
@@ -23,6 +67,7 @@ public class OrderTableEntity {
     }
 
 
+//
 //    @ManyToOne
 //    @JoinColumn(name = "FoodMenu_ID", referencedColumnName = "FoodMenu_ID")
 //    public MenuTotalEntity getMenuTotalEntity() { return menuTotalEntity;

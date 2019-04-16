@@ -8,6 +8,17 @@ public class DrinkMenuEntity {
     private int drinkMenuId;
     private int drinkQty;
     private double drinkTotal;
+//    private DrinkMenuEntity drinkMenuEntity;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "Drink_ID", referencedColumnName = "Drink_ID")
+//    public DrinkMenuEntity getDrinkMenuEntity() {
+//        return drinkMenuEntity;
+//    }
+//
+//    public void setDrinkMenuEntity(DrinkMenuEntity drinkMenuEntity) {
+//        this.drinkMenuEntity = drinkMenuEntity;
+//    }
 
     @Id
     @Column(name = "Drink_MenuID", nullable = false)

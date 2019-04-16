@@ -37,6 +37,8 @@ public class OrderDetailsController implements Initializable {
     @FXML private TableColumn<OrderTableEntity, String> drink;
     @FXML private TableColumn<OrderTableEntity, String> dessert;
     @FXML private TableColumn<OrderTableEntity, String> delivery;
+    @FXML private TableColumn<OrderTableEntity, String> lateFee;
+
 //
 //    private Scene returnScene;
 //    public void setReturnScene(Scene scene) {
@@ -62,8 +64,11 @@ public class OrderDetailsController implements Initializable {
     public void initColumns(){
 
         OrderID.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
-//        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getMenuTotalEntity(), "foodMenuId"));
+//        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getMenuTotalEntity(), "foodQty"));
         drink.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDrinkMenuEntity(), "drinkTotal"));
+        dessert.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDessertMenuEntity(), "dessertTotal"));
+        delivery.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDeliveryEntity(), "deliveryFee"));
+        lateFee.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getLateFeeEntity(), "rentalId"));
 
 //        OrderTableEntity customerID = new OrderTableEntity();
 //        customerID.getCustomerEntity().getCustomerId()
