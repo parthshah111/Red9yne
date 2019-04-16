@@ -46,6 +46,10 @@ public class CustomersController implements Initializable {
     @FXML private Button backtoMM;
 
     @FXML
+    private TextField firstName;
+
+    @FXML private Button deleteCustomer;
+    @FXML
     void backtoMM(ActionEvent event) {
         if (returnScene == null) {
             backtoMM.getScene().getWindow().hide();
@@ -124,6 +128,13 @@ public class CustomersController implements Initializable {
     }
 
 
+    public void deleteCustomerClass()
+    {
+        String fname = firstName.getText();
+        customerEntityRepository.deletUsersByFirstName(fname);
+        System.out.println("RECORD DELETED");
+
+    }
 //    public void populateTable ()
 //    {
 ////        int orderID;
