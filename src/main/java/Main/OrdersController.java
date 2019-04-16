@@ -31,6 +31,7 @@ public class OrdersController implements Initializable {
     @FXML private TableColumn<OrderTableEntity, String>  CustomerFName;
     @FXML private TableColumn<OrderTableEntity, String> CustomerLName;
     @FXML private TableColumn<OrderTableEntity, String> orderStatus;
+    @FXML private TableColumn<OrderTableEntity, String> orderTotal;
 
     private Scene returnScene;
     public void setReturnScene(Scene scene) {
@@ -52,7 +53,7 @@ public class OrdersController implements Initializable {
         CustomerFName.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "customerFname"));
         CustomerLName.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "customerLname"));
         orderStatus.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getOrderStatusEntity(), "orderDesc"));
-
+        orderTotal.setCellValueFactory(new PropertyValueFactory<>("orderTotal"));
     }
 
 
