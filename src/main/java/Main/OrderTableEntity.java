@@ -9,17 +9,17 @@ public class OrderTableEntity {
     private double orderTotal;
     public CustomerEntity customerEntity;
     public OrderStatusEntity orderStatusEntity;
-    public FoodEntity foodEntity;
-
-    @ManyToOne
-    @JoinColumn(name = "FoodMenu_ID", referencedColumnName = "Food_ID")
-    public FoodEntity getFoodEntity() {
-        return foodEntity;
-    }
-
-    public void setFoodEntity(FoodEntity foodEntity) {
-        this.foodEntity = foodEntity;
-    }
+//    public MenuTotalEntity menuTotalEntity;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "FoodMenu_ID", referencedColumnName = "FoodMenu_ID")
+//    public MenuTotalEntity getMenuTotalEntity() {
+//        return menuTotalEntity;
+//    }
+//
+//    public void setMenuTotalEntity(MenuTotalEntity menuTotalEntity) {
+//        this.menuTotalEntity = menuTotalEntity;
+//    }
 
     @ManyToOne
     @JoinColumn(name = "Order_StatusID", referencedColumnName = "Order_StatusID")

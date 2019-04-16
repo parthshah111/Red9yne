@@ -49,7 +49,7 @@ public class OrderDetailsController implements Initializable {
     public void initColumns(){
 
         OrderID.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
-        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "foodName"));
+        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "foodTotal"));
 //
 //        OrderTableEntity customerID = new OrderTableEntity();
 //        customerID.getCustomerEntity().getCustomerId()
