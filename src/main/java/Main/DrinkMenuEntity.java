@@ -12,7 +12,7 @@ public class DrinkMenuEntity {
 
     //--------------------------------------DrinkMenu->Drink Relationship-----------------
     public DrinkEntity drinkEntity;
-    
+
     @ManyToOne
     @JoinColumn(name = "Drink_id", referencedColumnName = "drink_id")
     public DrinkEntity getDrinkEntity() {
