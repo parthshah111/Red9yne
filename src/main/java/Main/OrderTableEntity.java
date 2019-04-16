@@ -8,22 +8,28 @@ public class OrderTableEntity {
     private int orderNo;
     private double orderTotal;
     public CustomerEntity customerEntity;
+    public OrderStatusEntity orderStatusEntity;
 
+    @ManyToOne
+    @JoinColumn(name = "Order_StatusID", referencedColumnName = "Order_StatusID")
+    public OrderStatusEntity getOrderStatusEntity() {
+        return orderStatusEntity;
+    }
+
+    public void setOrderStatusEntity(OrderStatusEntity orderStatusEntity) {
+        this.orderStatusEntity = orderStatusEntity;
+    }
 
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_ID")
     public CustomerEntity getCustomerEntity() {
-        CustomerEntity id = new CustomerEntity();
-        id.setCustomerId(customerEntity.getCustomerId());
-
-        return id;
+        return customerEntity;
     }
 
     public void setCustomerEntity(CustomerEntity customerEntity) {
         this.customerEntity = customerEntity;
-        this.customerEntity.setCustomerId(customerEntity.getCustomerId());
-
     }
+
 
     @Id
     @Column(name = "Order_no", nullable = false)

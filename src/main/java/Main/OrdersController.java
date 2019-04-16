@@ -1,6 +1,7 @@
 package Main;
 
 import javafx.beans.value.ObservableValue;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -27,8 +28,9 @@ public class OrdersController implements Initializable {
     @FXML private TableView<OrderTableEntity> tableView;
     @FXML private TableView<OrderStatusEntity> tableViewForStatus;
     @FXML private TableColumn<OrderTableEntity, Float> OrderID;
-    @FXML private TableColumn<CustomerEntity, String>  CustomerName;
-    @FXML private TableColumn<OrderTableEntity, Float> OrderType;
+    @FXML private TableColumn<OrderTableEntity, String>  CustomerFName;
+    @FXML private TableColumn<OrderTableEntity, String> CustomerLName;
+    @FXML private TableColumn<OrderTableEntity, String> orderStatus;
 
     private Scene returnScene;
     public void setReturnScene(Scene scene) {
@@ -46,7 +48,10 @@ public class OrdersController implements Initializable {
 //        OrderTableEntity customerID = new OrderTableEntity();
 //        customerID.getCustomerEntity().getCustomerId()
 //        int id = customerID.getCustomerEntity().getCustomerId();
-        OrderType.setCellValueFactory(new PropertyValueFactory<>("customerEntity"));
+        //OrderType.setCellValueFactory(new PropertyValueFactory<>("customerEntity"));
+        CustomerFName.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "customerFname"));
+        CustomerLName.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "customerLname"));
+        orderStatus.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getOrderStatusEntity(), "orderDesc"));
 
     }
 
