@@ -86,35 +86,4 @@ public class OrdersController implements Initializable {
     }
 
 
-
-//    public void populateTable ()
-//    {
-////        int orderID;
-////        OrderEntity order = new OrderEntity();
-////        order.getOrderNo();
-//        orderEntityRepository.getAllOrdersByOrderNo()
-//                .forEach(x ->{
-//                    tableView.getItems().add(x);
-//
-//                });
-//    }
-//
-//    @Override public void initialize(URL url, ResourceBundle rb) {
-//        OrderID.setCellValueFactory(new PropertyValueFactory<>("orderTotal"));
-////        CustomerName.setCellValueFactory(new PropertyValueFactory<>("customerFname"));
-////        OrderType.setCellValueFactory(new PropertyValueFactory<>("orderDesc"));
-//
-////        this.componentButton.setDisable(true);
-//        populateTable();
-//    }
-//
-//    public void backButton(ActionEvent event) throws IOException
-//    {
-//        Parent tableViewParent = FXMLLoader.load(getClass().getResource("main.fxml"));
-//        Scene tableViewScene = new Scene(tableViewParent);
-//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        window.setScene(tableViewScene);
-//        window.show();
-//    }
-
 }

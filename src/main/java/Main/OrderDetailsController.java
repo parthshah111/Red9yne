@@ -32,9 +32,9 @@ public class OrderDetailsController implements Initializable {
     @FXML private TableView<OrderStatusEntity> tableViewForStatus;
     @FXML private TableColumn<OrderTableEntity, Float> OrderID;
     @FXML private TableColumn<OrderTableEntity, String>  food;
-    @FXML private TableColumn<OrderTableEntity, String> CustomerLName;
-    @FXML private TableColumn<OrderTableEntity, String> orderStatus;
-    @FXML private TableColumn<OrderTableEntity, String> orderTotal;
+    @FXML private TableColumn<OrderTableEntity, String> drink;
+    @FXML private TableColumn<OrderTableEntity, String> dessert;
+    @FXML private TableColumn<OrderTableEntity, String> delivery;
 //
 //    private Scene returnScene;
 //    public void setReturnScene(Scene scene) {
@@ -49,8 +49,9 @@ public class OrderDetailsController implements Initializable {
     public void initColumns(){
 
         OrderID.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
-        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "foodTotal"));
-//
+//        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getMenuTotalEntity(), "foodMenuId"));
+        drink.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDrinkMenuEntity(), "drinkTotal"));
+
 //        OrderTableEntity customerID = new OrderTableEntity();
 //        customerID.getCustomerEntity().getCustomerId()
 //        int id = customerID.getCustomerEntity().getCustomerId();

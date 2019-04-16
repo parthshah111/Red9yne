@@ -9,12 +9,23 @@ public class OrderTableEntity {
     private double orderTotal;
     public CustomerEntity customerEntity;
     public OrderStatusEntity orderStatusEntity;
-//    public MenuTotalEntity menuTotalEntity;
-//
+    public MenuTotalEntity menuTotalEntity;
+    public DrinkMenuEntity drinkMenuEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "Drink_MenuID", referencedColumnName = "Drink_MenuID")
+    public DrinkMenuEntity getDrinkMenuEntity() {
+        return drinkMenuEntity;
+    }
+
+    public void setDrinkMenuEntity(DrinkMenuEntity drinkMenuEntity) {
+        this.drinkMenuEntity = drinkMenuEntity;
+    }
+
+
 //    @ManyToOne
 //    @JoinColumn(name = "FoodMenu_ID", referencedColumnName = "FoodMenu_ID")
-//    public MenuTotalEntity getMenuTotalEntity() {
-//        return menuTotalEntity;
+//    public MenuTotalEntity getMenuTotalEntity() { return menuTotalEntity;
 //    }
 //
 //    public void setMenuTotalEntity(MenuTotalEntity menuTotalEntity) {

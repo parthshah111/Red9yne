@@ -8,18 +8,6 @@ public class MenuTotalEntity {
     private int foodMenuId;
     private int foodQty;
     private double foodTotal;
-//    public FoodEntity foodEntity;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "Food_ID", referencedColumnName = "Food_ID")
-//    public FoodEntity getFoodEntity() {
-//        return foodEntity;
-//    }
-//
-//    public void setFoodEntity(FoodEntity foodEntity) {
-//        this.foodEntity = foodEntity;
-//    }
-//
 
     @Id
     @Column(name = "FoodMenu_ID", nullable = false)
