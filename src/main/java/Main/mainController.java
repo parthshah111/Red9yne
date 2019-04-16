@@ -23,20 +23,22 @@ public class mainController
 
     @FXML
     public void Submit(ActionEvent actionEvent) throws IOException {
+
+        //################Order scence#####
 //        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Customers.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Orders.fxml"));
 //        fxmlLoader.setControllerFactory(springContext::getBean);
 //        Scene scene = new Scene(fxmlLoader.load());
 //        OrdersController jobFormController = fxmlLoader.getController();
 //        jobFormController.setReturnScene(Submit.getScene());
 //        parent.setScene(scene);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Customers.fxml"));
-        fxmlLoader.setControllerFactory(springContext::getBean);
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Customers.fxml"));
+//        fxmlLoader.setControllerFactory(springContext::getBean);
+//        Parent root = fxmlLoader.load();
+//        Stage stage = new Stage();
+//        stage.setScene(new Scene(root));
+//        stage.show();
 
 //        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOption.fxml"));
@@ -45,6 +47,15 @@ public class mainController
 //        MenuOptionController jobFormController = fxmlLoader.getController();
 //        jobFormController.setReturnScene(Submit.getScene());
 //        parent.setScene(scene);
+
+        //#####################Order Details###
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOption.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        MenuOptionController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(Submit.getScene());
+        parent.setScene(scene);
     }
 
 }

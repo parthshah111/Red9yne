@@ -12,7 +12,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="orders" layoutX="138.0" layoutY="115.0" mnemonicParsing="false" text="Orders" />
-      <Button fx:id="customers" layoutX="392.0" layoutY="115.0" mnemonicParsing="false" text="Customers" />
+      <Button fx:id="orders" layoutX="138.0" layoutY="115.0" mnemonicParsing="false" text="Orders" onAction="#orders" />
+      <Button fx:id="customers" layoutX="392.0" layoutY="115.0" mnemonicParsing="false" text="Customers" onAction="#customers"/>
+      <Button fx:id="orderDetails" layoutX="138.0" layoutY="188.0" mnemonicParsing="false" text="Order Details" onAction="#orderDetails"/>
    </children>
 </AnchorPane>
