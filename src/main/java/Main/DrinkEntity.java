@@ -1,6 +1,8 @@
 package Main;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Drink", schema = "dbo", catalog = "DBdummy3")
@@ -8,6 +10,17 @@ public class DrinkEntity {
     private int drinkId;
     private String drinkName;
     private String drinkDesc;
+
+    private List<DrinkMenuEntity> drinkMenuEntities;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "drinkEntity", cascade = CascadeType.ALL)
+    public List<DrinkMenuEntity> getDrinkMenuEntities() {
+        return drinkMenuEntities;
+    }
+
+    public void setDrinkMenuEntities(List<DrinkMenuEntity> drinkMenuEntities) {
+        this.drinkMenuEntities = drinkMenuEntities;
+    }
 
     @Id
     @Column(name = "DRINK_ID", nullable = false)

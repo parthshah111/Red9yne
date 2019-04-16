@@ -1,6 +1,7 @@
 package Main;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Drink_Menu", schema = "dbo", catalog = "DBdummy3")
@@ -8,8 +9,45 @@ public class DrinkMenuEntity {
     private int drinkMenuId;
     private int drinkQty;
     private double drinkTotal;
+
+    //--------------------------------------DrinkMenu->Drink Relationship-----------------
+    public DrinkEntity drinkEntity;
+    
+    @ManyToOne
+    @JoinColumn(name = "Drink_id", referencedColumnName = "drink_id")
+    public DrinkEntity getDrinkEntity() {
+        return drinkEntity;
+    }
+
+    public void setDrinkEntity(DrinkEntity drinkEntity) {
+        this.drinkEntity = drinkEntity;
+    }
+    //======================================================================================
+    //------------------------------Order->DrinkMenu Relation-------------------------------
+    public List<OrderTableEntity> orderTableEntities;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "drinkMenuEntity", cascade = CascadeType.ALL)
+    public List<OrderTableEntity> getOrderTableEntities() {
+        return orderTableEntities;
+    }
+
+    public void setOrderTableEntities(List<OrderTableEntity> orderTableEntities) {
+        this.orderTableEntities = orderTableEntities;
+    }
+    //============================================================================================
+
+
+
 //    private DrinkMenuEntity drinkMenuEntity;
+//    @Id
+//    @GeneratedValue
+//    @Column(name="Drink_ID")
+//    private int Drink_ID;
 //
+//    @ManyToOne
+//    @JoinColumn(name = "Drink_ID")
+//    private DrinkEntity drinkEntity;
+
 //    @ManyToOne
 //    @JoinColumn(name = "Drink_ID", referencedColumnName = "Drink_ID")
 //    public DrinkMenuEntity getDrinkMenuEntity() {

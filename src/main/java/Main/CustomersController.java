@@ -3,7 +3,9 @@ package Main;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -12,14 +14,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 @Component
 public class CustomersController implements Initializable {
     @Autowired
+    private ConfigurableApplicationContext springContext;
+    @Autowired
     public CustomerEntityRepository customerEntityRepository;
+    public Button btnCusForm;
+    private Scene returnScene;
 
 
     @FXML private TableView<CustomerEntity> tableView;
@@ -33,7 +41,7 @@ public class CustomersController implements Initializable {
     @FXML private TableColumn<CustomerEntity, String> altphone;
     @FXML private TableColumn<CustomerEntity, String> email;
 
-    private Scene returnScene;
+
 
     @FXML private Button backtoMM;
 
@@ -104,6 +112,16 @@ public class CustomersController implements Initializable {
 
     }
 
+
+    public void handleCusForm(ActionEvent actionEvent)throws IOException {
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CustomerForm.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        CustomerFormController customerFormController = fxmlLoader.getController();
+        customerFormController.setReturnScene(btnCusForm.getScene());
+        parent.setScene(scene);
+    }
 
 
 //    public void populateTable ()
