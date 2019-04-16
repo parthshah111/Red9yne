@@ -1,6 +1,7 @@
 package Main;
 
 import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -41,6 +43,17 @@ public class OrderDetailsController implements Initializable {
 //        this.returnScene = scene;
 //    }
 
+
+    @FXML private Button backtoMM;
+
+    @FXML
+    void backtoMM(ActionEvent event) {
+        if (returnScene == null) {
+            backtoMM.getScene().getWindow().hide();
+        } else {
+            ((Stage) backtoMM.getScene().getWindow()).setScene(returnScene);
+        }
+    }
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initColumns();
         populateTable();

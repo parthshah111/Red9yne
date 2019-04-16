@@ -2,11 +2,13 @@ package Main;
 
 import javafx.beans.value.ObservableValue;
 import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.util.LambdaSafe;
 import org.springframework.stereotype.Component;
@@ -22,15 +24,35 @@ public class OrdersController implements Initializable {
     @Autowired
     public OrderStatusEntityRepository orderStatusEntityRepository;
 
-    @FXML private TableView<OrderTableEntity> tableView;
-    @FXML private TableView<OrderStatusEntity> tableViewForStatus;
-    @FXML private TableColumn<OrderTableEntity, Float> OrderID;
-    @FXML private TableColumn<OrderTableEntity, String>  CustomerFName;
-    @FXML private TableColumn<OrderTableEntity, String> CustomerLName;
-    @FXML private TableColumn<OrderTableEntity, String> orderStatus;
-    @FXML private TableColumn<OrderTableEntity, String> orderTotal;
+    @FXML
+    private TableView<OrderTableEntity> tableView;
+    @FXML
+    private TableView<OrderStatusEntity> tableViewForStatus;
+    @FXML
+    private TableColumn<OrderTableEntity, Float> OrderID;
+    @FXML
+    private TableColumn<OrderTableEntity, String> CustomerFName;
+    @FXML
+    private TableColumn<OrderTableEntity, String> CustomerLName;
+    @FXML
+    private TableColumn<OrderTableEntity, String> orderStatus;
+    @FXML
+    private TableColumn<OrderTableEntity, String> orderTotal;
 
     private Scene returnScene;
+
+
+    @FXML private Button backtoMM;
+
+    @FXML
+    void backtoMM(ActionEvent event) {
+        if (returnScene == null) {
+            backtoMM.getScene().getWindow().hide();
+        }
+        else {
+            ((Stage) backtoMM.getScene().getWindow()).setScene(returnScene);
+        }
+}
     public void setReturnScene(Scene scene) {
         this.returnScene = scene;
     }

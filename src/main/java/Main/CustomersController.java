@@ -1,6 +1,7 @@
 package Main;
 
 import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -32,6 +34,18 @@ public class CustomersController implements Initializable {
     @FXML private TableColumn<CustomerEntity, String> email;
 
     private Scene returnScene;
+
+    @FXML private Button backtoMM;
+
+    @FXML
+    void backtoMM(ActionEvent event) {
+        if (returnScene == null) {
+            backtoMM.getScene().getWindow().hide();
+        } else {
+            ((Stage) backtoMM.getScene().getWindow()).setScene(returnScene);
+        }
+    }
+
     public void setReturnScene(Scene scene) {
         this.returnScene = scene;
     }
@@ -40,6 +54,8 @@ public class CustomersController implements Initializable {
         initColumns();
         populateTable();
     }
+
+
 
     public void initColumns(){
 
