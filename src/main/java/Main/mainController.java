@@ -23,19 +23,28 @@ public class mainController
 
     @FXML
     public void Submit(ActionEvent actionEvent) throws IOException {
-        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Orders.fxml"));
-        fxmlLoader.setControllerFactory(springContext::getBean);
-        Scene scene = new Scene(fxmlLoader.load());
-        OrdersController jobFormController = fxmlLoader.getController();
-        jobFormController.setReturnScene(Submit.getScene());
-        parent.setScene(scene);
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Orders.fxml"));
+//        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Customers.fxml"));
 //        fxmlLoader.setControllerFactory(springContext::getBean);
-//        Parent root = fxmlLoader.load();
-//        Stage stage = new Stage();
-//        stage.setScene(new Scene(root));
-//        stage.show();
+//        Scene scene = new Scene(fxmlLoader.load());
+//        OrdersController jobFormController = fxmlLoader.getController();
+//        jobFormController.setReturnScene(Submit.getScene());
+//        parent.setScene(scene);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Customers.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+//        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MenuOption.fxml"));
+//        fxmlLoader.setControllerFactory(springContext::getBean);
+//        Scene scene = new Scene(fxmlLoader.load());
+//        MenuOptionController jobFormController = fxmlLoader.getController();
+//        jobFormController.setReturnScene(Submit.getScene());
+//        parent.setScene(scene);
     }
 
 }

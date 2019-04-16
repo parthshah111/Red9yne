@@ -1,34 +1,35 @@
 package Main;
 
-import javafx.beans.value.ObservableValue;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.util.LambdaSafe;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 @Component
-public class OrdersController implements Initializable {
-
+public class CustomersController implements Initializable {
     @Autowired
-    public OrderEntityRepository orderEntityRepository;
-    @Autowired
-    public OrderStatusEntityRepository orderStatusEntityRepository;
+    public CustomerEntityRepository customerEntityRepository;
 
-    @FXML private TableView<OrderTableEntity> tableView;
-    @FXML private TableView<OrderStatusEntity> tableViewForStatus;
-    @FXML private TableColumn<OrderTableEntity, Float> OrderID;
-    @FXML private TableColumn<OrderTableEntity, String>  CustomerFName;
-    @FXML private TableColumn<OrderTableEntity, String> CustomerLName;
-    @FXML private TableColumn<OrderTableEntity, String> orderStatus;
-    @FXML private TableColumn<OrderTableEntity, String> orderTotal;
+
+    @FXML private TableView<CustomerEntity> tableView;
+    @FXML private TableColumn<CustomerEntity, Float> customerNumber;
+    @FXML private TableColumn<CustomerEntity, String>  CustomerFName;
+    @FXML private TableColumn<CustomerEntity, String> CustomerLName;
+    @FXML private TableColumn<CustomerEntity, String> address;
+    @FXML private TableColumn<CustomerEntity, String> city;
+    @FXML private TableColumn<CustomerEntity, String> state;
+    @FXML private TableColumn<CustomerEntity, String> phone;
+    @FXML private TableColumn<CustomerEntity, String> altphone;
+    @FXML private TableColumn<CustomerEntity, String> email;
 
     private Scene returnScene;
     public void setReturnScene(Scene scene) {
@@ -42,15 +43,17 @@ public class OrdersController implements Initializable {
 
     public void initColumns(){
 
-        OrderID.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
-//        OrderTableEntity customerID = new OrderTableEntity();
-//        customerID.getCustomerEntity().getCustomerId()
-//        int id = customerID.getCustomerEntity().getCustomerId();
-        //OrderType.setCellValueFactory(new PropertyValueFactory<>("customerEntity"));
-        CustomerFName.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "customerFname"));
-        CustomerLName.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "customerLname"));
-        orderStatus.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getOrderStatusEntity(), "orderDesc"));
-        orderTotal.setCellValueFactory(new PropertyValueFactory<>("orderTotal"));
+        customerNumber.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+
+        CustomerFName.setCellValueFactory(new PropertyValueFactory<>("customerFname"));
+        CustomerLName.setCellValueFactory(new PropertyValueFactory<>("customerLname"));
+        address.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
+        city.setCellValueFactory(new PropertyValueFactory<>("customerCity"));
+        state.setCellValueFactory(new PropertyValueFactory<>("customerState"));
+        phone.setCellValueFactory(new PropertyValueFactory<>("customerPhone"));
+        altphone.setCellValueFactory(new PropertyValueFactory<>("customerAltcontact"));
+        email.setCellValueFactory(new PropertyValueFactory<>("customerEmail"));
+
     }
 
 
@@ -76,7 +79,7 @@ public class OrdersController implements Initializable {
 //        productRepository.save(productEntity);
 //        jobRepository.save(jobEntity);
 
-        orderEntityRepository.getAllOrdersByOrderNo().forEach(x->{
+        customerEntityRepository.getAllCustomers().forEach(x->{
             tableView.getItems().add(x);
 //        orderStatusEntityRepository.getAllOrderStatus().forEach(x->{
 //            tableViewForStatus.getItems().add(x);
@@ -116,5 +119,4 @@ public class OrdersController implements Initializable {
 //        window.setScene(tableViewScene);
 //        window.show();
 //    }
-
 }
