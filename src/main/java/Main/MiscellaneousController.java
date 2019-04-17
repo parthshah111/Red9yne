@@ -38,8 +38,18 @@ public class MiscellaneousController {
 
     @FXML
     Button foodInventory;
+
     @FXML
     Button managerNote;
+
+    @FXML
+    Button orderStatus;
+
+    @FXML
+    Button paymentInfo;
+
+    @FXML
+    Button lateFee;
 
 
     public void delivery(ActionEvent actionEvent) throws IOException {
@@ -106,6 +116,39 @@ public class MiscellaneousController {
         Scene scene = new Scene(fxmlLoader.load());
         ManagerNoteController menuOptionController = fxmlLoader.getController();
         menuOptionController.setReturnScene(managerNote.getScene());
+        parent.setScene(scene);
+    }
+
+    public void orderStatus(ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderStatus.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        OrderStatusController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(orderStatus.getScene());
+        parent.setScene(scene);
+    }
+
+    public void paymentInfo(ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PaymentInformation.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        PaymentInformationController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(paymentInfo.getScene());
+        parent.setScene(scene);
+    }
+
+    public void lateFee(ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LateFee.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        LateFeeController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(lateFee.getScene());
         parent.setScene(scene);
     }
 }
