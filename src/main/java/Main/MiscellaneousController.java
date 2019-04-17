@@ -63,6 +63,12 @@ public class MiscellaneousController {
     @FXML
     Button supplyStatus;
 
+    @FXML
+    Button taxType;
+
+    @FXML
+    Button tax;
+
     public void delivery(ActionEvent actionEvent) throws IOException {
 
         Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -204,6 +210,28 @@ public class MiscellaneousController {
         Scene scene = new Scene(fxmlLoader.load());
         SupplyStatusController menuOptionController = fxmlLoader.getController();
         menuOptionController.setReturnScene(supplyStatus.getScene());
+        parent.setScene(scene);
+    }
+
+    public void taxType (ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TaxType.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        TaxTypeController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(taxType.getScene());
+        parent.setScene(scene);
+    }
+
+    public void tax (ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Tax.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        TaxController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(tax.getScene());
         parent.setScene(scene);
     }
 }
