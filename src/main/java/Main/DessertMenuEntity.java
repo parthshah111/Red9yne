@@ -1,6 +1,7 @@
 package Main;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Dessert_Menu", schema = "dbo", catalog = "DBdummy3")
@@ -8,6 +9,30 @@ public class DessertMenuEntity {
     private int dessertMenuId;
     private int dessertQty;
     private double dessertTotal;
+
+    public DessertEntity dessertEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "Dessert_ID", referencedColumnName = "Dessert_ID")
+    public DessertEntity getDessertEntity() {
+        return dessertEntity;
+    }
+
+    public void setDessertEntity(DessertEntity dessertEntity) {
+        this.dessertEntity = dessertEntity;
+    }
+    //======================================================================================
+    public List<OrderTableEntity> orderTableEntities;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "dessertMenuEntity", cascade = CascadeType.ALL)
+    public List<OrderTableEntity> getOrderTableEntities() {
+        return orderTableEntities;
+    }
+
+    public void setOrderTableEntities(List<OrderTableEntity> orderTableEntities) {
+        this.orderTableEntities = orderTableEntities;
+    }
+    //============================================================================================
 
     @Id
     @Column(name = "Dessert_MenuID", nullable = false)
