@@ -57,6 +57,8 @@ public class MiscellaneousController {
     @FXML
     Button staffTitle;
 
+    @FXML
+    Button reportDate;
 
     public void delivery(ActionEvent actionEvent) throws IOException {
 
@@ -177,6 +179,17 @@ public class MiscellaneousController {
         Scene scene = new Scene(fxmlLoader.load());
         StaffTitleController menuOptionController = fxmlLoader.getController();
         menuOptionController.setReturnScene(staffTitle.getScene());
+        parent.setScene(scene);
+    }
+
+    public void reportDate (ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ReportDate.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        ReportDateController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(reportDate.getScene());
         parent.setScene(scene);
     }
 }
