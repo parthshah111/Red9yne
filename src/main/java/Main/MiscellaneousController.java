@@ -51,6 +51,9 @@ public class MiscellaneousController {
     @FXML
     Button lateFee;
 
+    @FXML
+    Button staffs;
+
 
     public void delivery(ActionEvent actionEvent) throws IOException {
 
@@ -149,6 +152,17 @@ public class MiscellaneousController {
         Scene scene = new Scene(fxmlLoader.load());
         LateFeeController menuOptionController = fxmlLoader.getController();
         menuOptionController.setReturnScene(lateFee.getScene());
+        parent.setScene(scene);
+    }
+
+    public void staffs (ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Staff.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        StaffEntityController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(staffs.getScene());
         parent.setScene(scene);
     }
 }

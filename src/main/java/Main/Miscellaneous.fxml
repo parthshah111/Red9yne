@@ -20,7 +20,8 @@
       <Button fx:id="managerNote" layoutX="142.0" layoutY="211.0" mnemonicParsing="false" onAction="#managerNote" text="Manager Note" />
       <Button fx:id="orderStatus" layoutX="391.0" layoutY="211.0" mnemonicParsing="false" onAction="#orderStatus" text="Order Status" />
       <Button fx:id="paymentInfo" layoutX="142.0" layoutY="262.0" mnemonicParsing="false" onAction="#paymentInfo" text="Payment Information" />
-      <Button fx:id="lateFee" layoutX="145.0" layoutY="323.0" mnemonicParsing="false" onAction="#lateFee" text="Late Fee" />
+      <Button fx:id="lateFee" layoutX="142.0" layoutY="303.0" mnemonicParsing="false" onAction="#lateFee" text="Late Fee" />
+      <Button fx:id="staffs" layoutX="391.0" layoutY="303.0" mnemonicParsing="false" onAction="#staffs" text="Staffs" />
       <!--<Button fx:id="orderDetails" layoutX="138.0" layoutY="176.0" mnemonicParsing="false" onAction="#orderDetails" text="Order Details" />-->
       <!--<Button fx:id="supplier" layoutX="392.0" layoutY="188.0" mnemonicParsing="false" onAction="#supplier" text="Suppliers" />-->
       <!--<Button fx:id="dessert" layoutX="138.0" layoutY="253.0" mnemonicParsing="false" onAction="#dessert" text="Desserts" />-->
