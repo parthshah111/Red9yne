@@ -14,7 +14,8 @@
       </Label>
       <Button fx:id="orders" layoutX="138.0" layoutY="115.0" mnemonicParsing="false" onAction="#orders" text="Orders" />
       <Button fx:id="customers" layoutX="392.0" layoutY="115.0" mnemonicParsing="false" onAction="#customers" text="Customers" />
-      <Button fx:id="orderDetails" layoutX="138.0" layoutY="188.0" mnemonicParsing="false" onAction="#orderDetails" text="Order Details" />
-      <Button fx:id="supplier" layoutX="392.0" layoutY="188.0" mnemonicParsing="false"  onAction="#supplier" text="Suppliers" />
+      <Button fx:id="orderDetails" layoutX="138.0" layoutY="176.0" mnemonicParsing="false" onAction="#orderDetails" text="Order Details" />
+      <Button fx:id="supplier" layoutX="392.0" layoutY="188.0" mnemonicParsing="false" onAction="#supplier" text="Suppliers" />
+      <Button fx:id="dessert" layoutX="138.0" layoutY="253.0" mnemonicParsing="false"  onAction="#dessert" text="Desserts" />
    </children>
 </AnchorPane>
