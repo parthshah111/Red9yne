@@ -31,19 +31,9 @@ public class MiscellaneousController {
     Button billing;
 
     @FXML
-    Button orderDetails;
+    Button event;
 
-    @FXML
-    Button supplier;
 
-    @FXML
-    Button dessert;
-
-    @FXML
-    Button appointments;
-
-    @FXML
-    Button moreTables;
 
     public void delivery(ActionEvent actionEvent) throws IOException {
 
@@ -65,6 +55,17 @@ public class MiscellaneousController {
         Scene scene = new Scene(fxmlLoader.load());
         BillingController menuOptionController = fxmlLoader.getController();
         menuOptionController.setReturnScene(billing.getScene());
+        parent.setScene(scene);
+    }
+
+    public void event(ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Event.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        EventController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(event.getScene());
         parent.setScene(scene);
     }
 }
