@@ -44,6 +44,9 @@ public class MenuOptionController {
     Button appointments;
 
     @FXML
+    Button moreTables;
+
+    @FXML
     public void orders(ActionEvent actionEvent) throws IOException {
         Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Orders.fxml"));
@@ -109,6 +112,17 @@ public class MenuOptionController {
         Scene scene = new Scene(fxmlLoader.load());
         AppointmentCustomerController menuOptionController = fxmlLoader.getController();
         menuOptionController.setReturnScene(appointments.getScene());
+        parent.setScene(scene);
+    }
+
+    public void moreTables(ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Delivery.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        DeliveryController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(moreTables.getScene());
         parent.setScene(scene);
     }
 }
