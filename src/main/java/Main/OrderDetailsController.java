@@ -65,7 +65,7 @@ public class OrderDetailsController implements Initializable {
 
         OrderID.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
 //        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getMenuTotalEntity(), "foodQty"));
-        drink.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDrinkMenuEntity(), "drinkTotal"));
+        drink.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDrinkMenuEntity().getDrinkEntity(), "drinkName"));
         dessert.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDessertMenuEntity(), "dessertTotal"));
         delivery.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDeliveryEntity(), "deliveryFee"));
         lateFee.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getLateFeeEntity(), "rentalId"));
