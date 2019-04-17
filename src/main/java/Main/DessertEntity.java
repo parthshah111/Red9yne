@@ -23,6 +23,7 @@ public class DessertEntity {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Dessert_ID", nullable = false)
     public int getDessertId() {
         return dessertId;

@@ -1,5 +1,7 @@
 package Main;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,12 @@ import java.util.ResourceBundle;
 public class DessertController implements Initializable {
     @Autowired
     public DessertEntityRepository dessertEntityRepository;
+    public Button addID;
+    public Button deleteID;
+    public Button updateID;
+    public TextField DessertDesc;
+    public TextField DessertName;
+    public TextField DessertPrice;
 
 
     @FXML
@@ -48,6 +57,7 @@ public class DessertController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initColumns();
         populateTable();
+        populatTextField();
     }
 
 
@@ -63,38 +73,62 @@ public class DessertController implements Initializable {
 
     public void populateTable ()
     {
-
-
-//         productEntity = new ProductEntity();
-//        productEntity.setProductname(productname);
-//        productEntity.setProductdesc(Description);
-//
-//        JobEntity jobEntity =tblView.getSelectionModel().getSelectedItem();
-//        jobEntity.setProductEntity(productEntity);
-//
-//        productRepository.save(productEntity);
-//        jobRepository.save(jobEntity);
-
         dessertEntityRepository.getAllDessert().forEach(x->{
             tableView.getItems().add(x);
-//        orderStatusEntityRepository.getAllOrderStatus().forEach(x->{
-//            tableViewForStatus.getItems().add(x);
-//        });
+
+        });
+
+    }
+
+    public void handleaddID(ActionEvent actionEvent) {
+        String name = DessertName.getText();
+        String description = DessertDesc.getText();
+        String price = DessertPrice.getText();
+
+        DessertEntity dessert =new DessertEntity();
+        dessert.setDessertName(name);
+        dessert.setDessertDesc(description);
+        dessert.setDessertPrice(Double.parseDouble(price));
+        dessertEntityRepository.save(dessert);
+        tableView.getItems().add(dessert);
+        tableView.refresh();
+    }
+
+    public void handledeleteID(ActionEvent actionEvent) {
+        DessertEntity dessert = tableView.getSelectionModel().getSelectedItem();
+        dessertEntityRepository.delete(dessert);
+        tableView.getItems().remove(dessert);
+        tableView.getSelectionModel().clearSelection();
+        tableView.refresh();
+
+    }
+
+    public void handleupdateID(ActionEvent actionEvent) {
+        DessertEntity dessert = tableView.getSelectionModel().getSelectedItem();
+        dessert.setDessertName(DessertName.getText());
+        dessert.setDessertDesc(DessertDesc.getText());
+        dessert.setDessertPrice(Double.parseDouble(DessertPrice.getText()));
+        dessertEntityRepository.save(dessert);
+//        tableView.getSelectionModel().clearSelection();
+        tableView.refresh();
+    }
+
+    public void populatTextField(){
+        ObservableList<DessertEntity> observableList = FXCollections.observableArrayList();
+        dessertEntityRepository.findAll().forEach(observableList::add);
+        tableView.setItems(observableList);
+        tableView.getSelectionModel().selectedItemProperty().addListener((observable,oldval,newval) -> {
+            DessertEntity des= newval;
+            if (des != null) {
+                DessertName.setText(des.getDessertName());
+                DessertDesc.setText(des.getDessertDesc());
+                DessertPrice.setText(String.valueOf(des.getDessertPrice()));
+                tableView.refresh();
+            }
         });
 
     }
 
 
 
-//    public void populateTable ()
-//    {
-////        int orderID;
-////        OrderEntity order = new OrderEntity();
-////        order.getOrderNo();
-//        orderEntityRepository.getAllOrdersByOrderNo()
-//                .forEach(x ->{
-//                    tableView.getItems().add(x);
-//
-//                });
-//    }
 }
