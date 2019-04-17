@@ -9,21 +9,22 @@ public class OrderTableEntity {
     private double orderTotal;
     public CustomerEntity customerEntity;
     public OrderStatusEntity orderStatusEntity;
-    public MenuTotalEntity menuTotalEntity;
+//    public ReportDateEntity reportDateEntity;
     public DrinkMenuEntity drinkMenuEntity;
     public DessertMenuEntity dessertMenuEntity;
     public DeliveryEntity deliveryEntity;
     public LateFeeEntity lateFeeEntity;
-
+//
 //    @ManyToOne
-//    @JoinColumn(name = "foodmenu_id", referencedColumnName = "foodmenu_id")
-//    public MenuTotalEntity getMenuTotalEntity() {
-//        return menuTotalEntity;
+//    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID")
+//    public ReportDateEntity getReportDateEntity() {
+//        return reportDateEntity;
 //    }
 //
-//    public void setMenuTotalEntity(MenuTotalEntity menuTotalEntity) {
-//        this.menuTotalEntity = menuTotalEntity;
+//    public void setReportDateEntity(ReportDateEntity reportDateEntity) {
+//        this.reportDateEntity = reportDateEntity;
 //    }
+
 
     @ManyToOne
     @JoinColumn(name = "Rental_ID", referencedColumnName = "Rental_ID")

@@ -9,7 +9,22 @@ public class MenuTotalEntity {
     private int foodMenuId;
     private int foodQty;
     private double foodTotal;
-//    private List<OrderTableEntity> orderTableEntities;
+
+//    //----------------------------------------------------
+//    public FoodEntity foodEntity;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "Food_ID", referencedColumnName = "Food_ID")
+//    public FoodEntity getFoodEntity() {
+//        return foodEntity;
+//    }
+//
+//    public void setFoodEntity(FoodEntity foodEntity) {
+//        this.foodEntity = foodEntity;
+//    }
+//    //======================================================================================
+//
+//    public List<OrderTableEntity> orderTableEntities;
 //
 //    @OneToMany(fetch = FetchType.EAGER, mappedBy = "menuTotalEntity", cascade = CascadeType.ALL)
 //    public List<OrderTableEntity> getOrderTableEntities() {

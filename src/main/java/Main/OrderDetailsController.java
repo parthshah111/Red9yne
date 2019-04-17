@@ -33,7 +33,7 @@ public class OrderDetailsController implements Initializable {
     @FXML private TableView<OrderTableEntity> tableView;
     @FXML private TableView<OrderStatusEntity> tableViewForStatus;
     @FXML private TableColumn<OrderTableEntity, Float> OrderID;
-    @FXML private TableColumn<OrderTableEntity, String>  food;
+    @FXML private TableColumn<OrderTableEntity, String>  reportDate;
     @FXML private TableColumn<OrderTableEntity, String> drink;
     @FXML private TableColumn<OrderTableEntity, String> dessert;
     @FXML private TableColumn<OrderTableEntity, String> delivery;
@@ -64,7 +64,7 @@ public class OrderDetailsController implements Initializable {
     public void initColumns(){
 
         OrderID.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
-//        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getMenuTotalEntity(), "foodQty"));
+//        reportDate.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getReportDateEntity(), "reportDate"));
         drink.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDrinkMenuEntity().getDrinkEntity(), "drinkName"));
         dessert.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDessertMenuEntity().getDessertEntity(), "dessertName"));
         delivery.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDeliveryEntity(), "deliveryFee"));
