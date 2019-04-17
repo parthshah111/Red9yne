@@ -18,6 +18,6 @@
       <Button fx:id="supplier" layoutX="392.0" layoutY="188.0" mnemonicParsing="false" onAction="#supplier" text="Suppliers" />
       <Button fx:id="dessert" layoutX="138.0" layoutY="253.0" mnemonicParsing="false" onAction="#dessert" text="Desserts" />
       <Button fx:id="appointments" layoutX="399.0" layoutY="253.0" mnemonicParsing="false" onAction="#appointments" text="Appointments" />
-      <Button fx:id="moreTables" layoutX="138.0" layoutY="318.0" mnemonicParsing="false" onAction="#moreTables" text="More Tables" />
+      <Button fx:id="miscellaneous" layoutX="138.0" layoutY="318.0" mnemonicParsing="false" onAction="#miscellaneous" text="miscellaneous" />
    </children>
 </AnchorPane>
