@@ -8,17 +8,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-@Controller
-public class OrderDetailsController implements Initializable {
+@Component
+public class AppointmentCustomerController implements Initializable {
+
     public void setReturnScene(Scene returnScene) {
         this.returnScene = returnScene;
     }
@@ -26,18 +26,17 @@ public class OrderDetailsController implements Initializable {
     private Scene returnScene;
 
     @Autowired
-    public OrderEntityRepository orderEntityRepository;
-    @Autowired
-    public OrderStatusEntityRepository orderStatusEntityRepository;
+    public ApppointmentCustomerEntityRepository apppointmentCustomerEntityRepository;
 
-    @FXML private TableView<OrderTableEntity> tableView;
-    @FXML private TableView<OrderStatusEntity> tableViewForStatus;
-    @FXML private TableColumn<OrderTableEntity, Float> OrderID;
-    @FXML private TableColumn<OrderTableEntity, String>  food;
-    @FXML private TableColumn<OrderTableEntity, String> drink;
-    @FXML private TableColumn<OrderTableEntity, String> dessert;
-    @FXML private TableColumn<OrderTableEntity, String> delivery;
-    @FXML private TableColumn<OrderTableEntity, String> lateFee;
+    @FXML
+    private TableView<AppointmentCustomerEntity> tableView;
+    @FXML private TableView<AppointmentCustomerEntity> tableViewForStatus;
+    @FXML private TableColumn<AppointmentCustomerEntity, Float> appointmentId;
+    @FXML private TableColumn<AppointmentCustomerEntity, String>  CustomerFName;
+    @FXML private TableColumn<AppointmentCustomerEntity, String> CustomerLName;
+    @FXML private TableColumn<AppointmentCustomerEntity, String> appointmentDate;
+    @FXML private TableColumn<AppointmentCustomerEntity, String> appointmentStatus;
+
 
 //
 //    private Scene returnScene;
@@ -63,12 +62,11 @@ public class OrderDetailsController implements Initializable {
 
     public void initColumns(){
 
-        OrderID.setCellValueFactory(new PropertyValueFactory<>("orderNo"));
-//        food.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getMenuTotalEntity(), "foodQty"));
-        drink.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDrinkMenuEntity().getDrinkEntity(), "drinkName"));
-        dessert.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDessertMenuEntity().getDessertEntity(), "dessertName"));
-        delivery.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getDeliveryEntity(), "deliveryFee"));
-        lateFee.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getLateFeeEntity(), "rentalId"));
+        appointmentId.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getAppointmentEntity(), "appointmentId"));
+        CustomerFName.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "customerFname"));
+        CustomerLName.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getCustomerEntity(), "customerLname"));
+        appointmentDate.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getAppointmentEntity(), "appointmentDate"));
+        appointmentStatus.setCellValueFactory(cellData -> Bindings.select(cellData.getValue().getAppointmentEntity().getAppointmentStatusEntity(), "appointmentStatus"));
 
 //        OrderTableEntity customerID = new OrderTableEntity();
 //        customerID.getCustomerEntity().getCustomerId()
@@ -103,7 +101,7 @@ public class OrderDetailsController implements Initializable {
 //        productRepository.save(productEntity);
 //        jobRepository.save(jobEntity);
 
-        orderEntityRepository.getAllOrdersByOrderNo().forEach(x->{
+        apppointmentCustomerEntityRepository.getAllAppointmentCustomer().forEach(x->{
             tableView.getItems().add(x);
 //        orderStatusEntityRepository.getAllOrderStatus().forEach(x->{
 //            tableViewForStatus.getItems().add(x);
