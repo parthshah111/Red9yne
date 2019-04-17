@@ -33,7 +33,11 @@ public class MiscellaneousController {
     @FXML
     Button event;
 
+    @FXML
+    Button eventStatus;
 
+    @FXML
+    Button foodInventory;
 
     public void delivery(ActionEvent actionEvent) throws IOException {
 
@@ -66,6 +70,28 @@ public class MiscellaneousController {
         Scene scene = new Scene(fxmlLoader.load());
         EventController menuOptionController = fxmlLoader.getController();
         menuOptionController.setReturnScene(event.getScene());
+        parent.setScene(scene);
+    }
+
+    public void eventStatus(ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EventStatus.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        EventStatusController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(eventStatus.getScene());
+        parent.setScene(scene);
+    }
+
+    public void foodInventory(ActionEvent actionEvent) throws IOException {
+
+        Stage parent  = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Food.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        Scene scene = new Scene(fxmlLoader.load());
+        FoodController menuOptionController = fxmlLoader.getController();
+        menuOptionController.setReturnScene(foodInventory.getScene());
         parent.setScene(scene);
     }
 }
