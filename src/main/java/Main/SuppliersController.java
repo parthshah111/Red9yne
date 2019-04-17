@@ -106,7 +106,7 @@ public class SuppliersController implements Initializable {
     {
         tableView.getSelectionModel().clearSelection();
         sName.setText(null);
-        sStatus.setValue("");
+        sStatus.setValue(null);
         this.deleteSupplier.setDisable(true);
         this.updateSupplier.setDisable(true);
     }

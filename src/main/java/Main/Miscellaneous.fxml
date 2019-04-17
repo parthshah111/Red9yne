@@ -12,16 +12,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="delivery" layoutX="138.0" layoutY="115.0" mnemonicParsing="false" onAction="#delivery" text="Delivery" />
-      <Button fx:id="billing" layoutX="392.0" layoutY="115.0" mnemonicParsing="false" onAction="#billing" text="Billing" />
-      <Button fx:id="event" layoutX="142.0" layoutY="162.0" mnemonicParsing="false" onAction="#event" text="Event" />
-      <Button fx:id="eventStatus" layoutX="392.0" layoutY="262.0" mnemonicParsing="false" onAction="#eventStatus" text="Event Status" />
-      <Button fx:id="foodInventory" layoutX="391.0" layoutY="162.0" mnemonicParsing="false" onAction="#foodInventory" text="Food Inventory" />
-      <Button fx:id="managerNote" layoutX="142.0" layoutY="211.0" mnemonicParsing="false" onAction="#managerNote" text="Manager Note" />
-      <Button fx:id="orderStatus" layoutX="391.0" layoutY="211.0" mnemonicParsing="false" onAction="#orderStatus" text="Order Status" />
-      <Button fx:id="paymentInfo" layoutX="142.0" layoutY="262.0" mnemonicParsing="false" onAction="#paymentInfo" text="Payment Information" />
-      <Button fx:id="lateFee" layoutX="142.0" layoutY="303.0" mnemonicParsing="false" onAction="#lateFee" text="Late Fee" />
-      <Button fx:id="staffs" layoutX="391.0" layoutY="303.0" mnemonicParsing="false" onAction="#staffs" text="Staffs" />
+      <Button fx:id="delivery" layoutX="138.0" layoutY="81.0" mnemonicParsing="false" onAction="#delivery" text="Delivery" />
+      <Button fx:id="billing" layoutX="406.0" layoutY="83.0" mnemonicParsing="false" onAction="#billing" text="Billing" />
+      <Button fx:id="event" layoutX="142.0" layoutY="128.0" mnemonicParsing="false" onAction="#event" text="Event" />
+      <Button fx:id="eventStatus" layoutX="406.0" layoutY="230.0" mnemonicParsing="false" onAction="#eventStatus" text="Event Status" />
+      <Button fx:id="foodInventory" layoutX="405.0" layoutY="130.0" mnemonicParsing="false" onAction="#foodInventory" text="Food Inventory" />
+      <Button fx:id="managerNote" layoutX="142.0" layoutY="177.0" mnemonicParsing="false" onAction="#managerNote" text="Manager Note" />
+      <Button fx:id="orderStatus" layoutX="405.0" layoutY="179.0" mnemonicParsing="false" onAction="#orderStatus" text="Order Status" />
+      <Button fx:id="paymentInfo" layoutX="142.0" layoutY="228.0" mnemonicParsing="false" onAction="#paymentInfo" text="Payment Information" />
+      <Button fx:id="lateFee" layoutX="142.0" layoutY="269.0" mnemonicParsing="false" onAction="#lateFee" text="Late Fee" />
+      <Button fx:id="staffs" layoutX="405.0" layoutY="271.0" mnemonicParsing="false" onAction="#staffs" text="Staffs" />
+      <Button fx:id="staffTitle" layoutX="146.0" layoutY="313.0" mnemonicParsing="false" onAction="#staffTitle" text="Staff Title" />
       <!--<Button fx:id="orderDetails" layoutX="138.0" layoutY="176.0" mnemonicParsing="false" onAction="#orderDetails" text="Order Details" />-->
       <!--<Button fx:id="supplier" layoutX="392.0" layoutY="188.0" mnemonicParsing="false" onAction="#supplier" text="Suppliers" />-->
       <!--<Button fx:id="dessert" layoutX="138.0" layoutY="253.0" mnemonicParsing="false" onAction="#dessert" text="Desserts" />-->
