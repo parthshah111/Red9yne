@@ -20,6 +20,10 @@ public class MenuOptionController {
     public void setReturnScene(Scene returnScene) {
         this.returnScene = returnScene;
     }
+    @FXML void backtoMM(ActionEvent event){
+        var stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(returnScene);
+    }
 
     private Scene returnScene;
 

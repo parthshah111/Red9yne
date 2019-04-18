@@ -1,22 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.mainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.mainController">
    <children>
-      <Label layoutX="90.0" layoutY="192.0" text="ID:" />
-      <Label layoutX="90.0" layoutY="224.0" text="Password:" />
-      <TextField fx:id="userName" layoutX="219.0" layoutY="188.0" />
-      <TextField fx:id="passWord" layoutX="219.0" layoutY="220.0" />
-      <Label layoutX="90.0" layoutY="83.0" prefHeight="38.0" prefWidth="321.0" text="Fung's Kitchen Management System">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="Submit" layoutX="316.0" layoutY="281.0" mnemonicParsing="false" onAction="#Submit" text="Submit" />
+      <AnchorPane layoutX="317.0" layoutY="28.0" prefHeight="320.0" prefWidth="200.0">
+         <children>
+            <JFXTextField fx:id="userName" layoutX="33.0" layoutY="87.0" promptText="Username" />
+            <JFXPasswordField fx:id="passWord" layoutX="33.0" layoutY="125.0" promptText="Password" />
+            <Label layoutX="58.0" layoutY="14.0" prefHeight="17.0" prefWidth="89.0" text="Sign In">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="67.0" layoutY="194.0" onAction="#Submit" prefHeight="25.0" prefWidth="65.0" style="-fx-background-radius: 100; -fx-background-color: #d82b2b;" text="Login" textFill="WHITE" />
+            <CheckBox layoutX="46.0" layoutY="238.0" mnemonicParsing="false" text="Remember Me" />
+            <Hyperlink layoutX="46.0" layoutY="285.0" text="Forgot Password" />
+            <Hyperlink layoutX="46.0" layoutY="262.0" text="Forgot Username" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="191.0" fitWidth="255.0" layoutX="64.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/FungsLogo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="120.0" layoutX="14.0" layoutY="343.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Red9yneLogo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
