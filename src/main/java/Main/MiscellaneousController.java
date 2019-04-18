@@ -16,12 +16,6 @@ import java.io.IOException;
 @Controller
 public class MiscellaneousController {
 
-    public void setReturnScene(Scene returnScene) {
-        this.returnScene = returnScene;
-    }
-
-    private Scene returnScene;
-
     @Autowired
     private ConfigurableApplicationContext springContext;
     @FXML
@@ -68,6 +62,16 @@ public class MiscellaneousController {
 
     @FXML
     Button tax;
+
+    private Scene returnScene;
+    public void setReturnScene(Scene scene) {
+        this.returnScene = scene;
+    }
+
+    @FXML void backtoMM(ActionEvent event) {
+        var stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(returnScene);
+    }
 
     public void delivery(ActionEvent actionEvent) throws IOException {
 
