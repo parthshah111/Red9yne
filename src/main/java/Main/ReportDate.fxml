@@ -7,20 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.ReportDateController">
+<AnchorPane prefHeight="522.0" prefWidth="625.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.ReportDateController">
     <children>
-        <TableView fx:id="tableView" layoutX="173.0" layoutY="45.0" prefHeight="455.0" prefWidth="412.0">
+        <TableView fx:id="tableView" layoutX="181.0" layoutY="33.0" prefHeight="455.0" prefWidth="414.0">
             <columns>
                 <TableColumn fx:id="colReportID" prefWidth="95.0" text="Report ID" />
                 <TableColumn fx:id="colReportDate" prefWidth="158.0" text="Report Date" />
                 <TableColumn fx:id="colGrandTotal" minWidth="4.0" prefWidth="157.0" text="Grand Total" />
             </columns>
         </TableView>
-        <Label layoutX="14.0" layoutY="45.0" text="Report Date">
+        <Label layoutX="14.0" layoutY="26.0" text="Report Date" textFill="#eb3131">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="System Bold" size="18.0" />
             </font></Label>
-        <Button fx:id="backtoMM" layoutX="21.0" layoutY="463.0" mnemonicParsing="false" onAction="#backtoMM" prefHeight="27.0" prefWidth="137.0" text="Back to Main Menu" />
+        <Button fx:id="backtoMM" layoutX="21.0" layoutY="458.0" mnemonicParsing="false" onAction="#backtoMM" prefHeight="27.0" prefWidth="137.0" text="Back to Main Menu">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Button>
     </children>
 
 </AnchorPane>

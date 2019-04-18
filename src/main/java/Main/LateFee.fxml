@@ -7,22 +7,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.LateFeeController">
+<AnchorPane prefHeight="520.0" prefWidth="889.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.LateFeeController">
     <children>
-        <TableView fx:id="tableView" layoutX="173.0" layoutY="45.0" prefHeight="455.0" prefWidth="702.0">
+        <TableView fx:id="tableView" layoutX="173.0" layoutY="31.0" prefHeight="469.0" prefWidth="705.0">
             <columns>
                 <TableColumn fx:id="colRentalID" prefWidth="95.0" text="Rental ID" />
                 <TableColumn fx:id="colExpDate" prefWidth="158.0" text="Expiration Date" />
                 <TableColumn fx:id="colRetDate" minWidth="4.0" prefWidth="157.0" text="Return Date" />
-            <TableColumn fx:id="colLateDay" prefWidth="125.0" text="Late Day" />
-            <TableColumn fx:id="colLateFee" minWidth="8.0" prefWidth="86.0" text="Late Fee" />
-            <TableColumn fx:id="colLateTotal" text="Late Total" />
+                <TableColumn fx:id="colLateDay" prefWidth="125.0" text="Late Day" />
+                <TableColumn fx:id="colLateFee" minWidth="8.0" prefWidth="86.0" text="Late Fee" />
+                <TableColumn fx:id="colLateTotal" text="Late Total" />
             </columns>
         </TableView>
-        <Label layoutX="14.0" layoutY="45.0" text="Late Fee">
+        <Label layoutX="22.0" layoutY="17.0" text="Late Fee" textFill="#eb3131">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="System Bold" size="18.0" />
             </font></Label>
-        <Button fx:id="backtoMM" layoutX="21.0" layoutY="463.0" mnemonicParsing="false" onAction="#backtoMM" prefHeight="27.0" prefWidth="137.0" text="Back to Main Menu" />
+        <Button fx:id="backtoMM" layoutX="14.0" layoutY="463.0" mnemonicParsing="false" onAction="#backtoMM" prefHeight="27.0" prefWidth="137.0" text="Back to Main Menu">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font></Button>
     </children>
 </AnchorPane>
