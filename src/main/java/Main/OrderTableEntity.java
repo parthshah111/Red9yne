@@ -7,13 +7,24 @@ import javax.persistence.*;
 public class OrderTableEntity {
     private int orderNo;
     private double orderTotal;
-    public CustomerEntity customerEntity;
-    public OrderStatusEntity orderStatusEntity;
+
 //    public ReportDateEntity reportDateEntity;
     public DrinkMenuEntity drinkMenuEntity;
     public DessertMenuEntity dessertMenuEntity;
     public DeliveryEntity deliveryEntity;
     public LateFeeEntity lateFeeEntity;
+//-------------------------------------Order->Customer------------------------------------------------------
+    public CustomerEntity customerEntity;
+    @ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_ID")
+    public CustomerEntity getCustomerEntity() {
+        return customerEntity;
+    }
+
+    public void setCustomerEntity(CustomerEntity customerEntity) {
+        this.customerEntity = customerEntity;
+    }
+    public OrderStatusEntity orderStatusEntity;
 //
 //    @ManyToOne
 //    @JoinColumn(name = "Report_ID", referencedColumnName = "Report_ID")
@@ -88,15 +99,15 @@ public class OrderTableEntity {
         this.orderStatusEntity = orderStatusEntity;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "customer_ID")
-    public CustomerEntity getCustomerEntity() {
-        return customerEntity;
-    }
-
-    public void setCustomerEntity(CustomerEntity customerEntity) {
-        this.customerEntity = customerEntity;
-    }
+//    @ManyToOne
+//    @JoinColumn(name = "customer_id", referencedColumnName = "customer_ID")
+//    public CustomerEntity getCustomerEntity() {
+//        return customerEntity;
+//    }
+//
+//    public void setCustomerEntity(CustomerEntity customerEntity) {
+//        this.customerEntity = customerEntity;
+//    }
 
 
     @Id
